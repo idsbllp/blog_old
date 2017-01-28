@@ -1,5 +1,5 @@
 <?php
-namespace app\test\controller;
+namespace app\page\controller;
 
 class Index
 {

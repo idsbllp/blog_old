@@ -9,6 +9,9 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+// use think\Cache;
+
+
 return [
     // +----------------------------------------------------------------------
     // | 应用设置
@@ -70,7 +73,7 @@ return [
     // 操作方法后缀
     'action_suffix'          => '',
     // 自动搜索控制器
-    'controller_auto_search' => false,
+    'controller_auto_search' => true,
 
     // +----------------------------------------------------------------------
     // | URL设置
@@ -101,7 +104,7 @@ return [
     // 域名根，如thinkphp.cn
     'url_domain_root'        => '',
     // 是否自动转换URL中的控制器和操作名
-    'url_convert'            => true,
+    'url_convert'            => false,
     // 默认的访问控制器层
     'url_controller_layer'   => 'controller',
     // 表单请求类型伪装变量
@@ -183,16 +186,23 @@ return [
     // | 缓存设置
     // +----------------------------------------------------------------------
 
-    'cache'                  => [
-        // 驱动方式
-        'type'   => 'File',
-        // 缓存保存目录
-        'path'   => CACHE_PATH,
-        // 缓存前缀
-        'prefix' => '',
-        // 缓存有效期 0表示永久缓存
-        'expire' => 0,
-    ],
+    // 'cache'                  => [
+    //     // 驱动方式
+    //     'type'   => 'File',
+    //     // 缓存保存目录
+    //     'path'   => CACHE_PATH,
+    //     // 缓存前缀
+    //     'prefix' => '',
+    //     // 缓存有效期 0表示永久缓存
+    //     'expire' => 0,
+    // ],
+
+    'TMPL_CACHE_ON'   => false,  // 默认开启模板编译缓存 false 的话每次都重新编译模板
+ 
+    'ACTION_CACHE_ON'  => false,  // 默认关闭Action 缓存
+     
+    'HTML_CACHE_ON'   => false,   // 默认关闭静态缓存
+
 
     // +----------------------------------------------------------------------
     // | 会话设置
@@ -229,6 +239,7 @@ return [
         // 是否使用 setcookie
         'setcookie' => true,
     ],
+
 
     //分页配置
     'paginate'               => [

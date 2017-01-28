@@ -37,11 +37,11 @@ return [
       'view'       => ['index/index'],
   ],
   // 其他更多的模块定义
-  'test'     => [
+  'page'     => [
       '__file__'   => ['common.php'],
-      '__dir__'    => ['behavior', 'controller', 'model', 'view'],
-      'controller' => ['Index', 'Test', 'UserType'],
-      'model'      => ['User', 'UserType'],
+      '__dir__'    => ['controller', 'model', 'view'],
+      'controller' => ['Index', 'Type'],
+      'model'      => ['User'],
       'view'       => ['index/index'],
   ],
 ];
