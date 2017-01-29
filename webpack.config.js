@@ -1,55 +1,71 @@
 var path = require('path');
+
 module.exports = {
     entry: './src/js/index.js',
-    //å®šä¹‰webpackè¾“å‡ºçš„æ–‡ä»¶ï¼Œæˆ‘ä»¬åœ¨è¿™é‡Œè®¾ç½®äº†
-    //è®©æ‰“åŒ…åç”Ÿæˆçš„æ–‡ä»¶æ”¾åœ¨distæ–‡ä»¶å¤¹ä¸‹çš„build.jsæ–‡ä»¶ä¸­
+    //¶¨ÒåwebpackÊä³öµÄÎÄ¼ş£¬ÎÒÃÇÔÚÕâÀïÉèÖÃÁË
+    //ÈÃ´ò°üºóÉú³ÉµÄÎÄ¼ş·ÅÔÚdistÎÄ¼ş¼ĞÏÂµÄbuild.jsÎÄ¼şÖĞ
     output: {
         path: './public/static/index/js/',
         publicPath: './application/index/view/index/',
         filename: 'index.js'
     },
     module: {
-        // åŠ è½½å™¨
+        // ¼ÓÔØÆ÷
         loaders: [
-        // è§£æ.vueæ–‡ä»¶
-            { test: /\.vue$/, loader: 'vue' },
-        // è½¬åŒ–ES6çš„è¯­æ³•
-            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
-        // ç¼–è¯‘csså¹¶è‡ªåŠ¨æ·»åŠ csså‰ç¼€
-            { test: /\.css$/, loader: 'style!css!autoprefixer'},
-        //.scss æ–‡ä»¶æƒ³è¦ç¼–è¯‘ï¼Œscsså°±éœ€è¦è¿™äº›ä¸œè¥¿ï¼æ¥ç¼–è¯‘å¤„ç†
-        //install css-loader style-loader sass-loader node-sass --save-dev
-            { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
-        // å›¾ç‰‡è½¬åŒ–ï¼Œå°äº8Kè‡ªåŠ¨è½¬åŒ–ä¸ºbase64çš„ç¼–ç 
-            { test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192'},
-        //htmlæ¨¡æ¿ç¼–è¯‘ï¼Ÿ
-            { test: /\.(html|tpl)$/, loader: 'html-loader' },
-        ]
-    },
-    // .vueçš„é…ç½®ã€‚éœ€è¦å•ç‹¬å‡ºæ¥é…ç½®ï¼Œå…¶å®æ²¡ä»€ä¹ˆå¿…è¦--å› ä¸ºæˆ‘åˆ äº†ä¹Ÿæ²¡ä¿é”™ï¼Œä¸è¿‡è¿™é‡Œå°±ç•™è¿™æŠŠï¼Œå› ä¸ºå®˜ç½‘æ–‡æ¡£é‡Œæ˜¯å¯ä»¥æœ‰å•ç‹¬çš„é…ç½®çš„ã€‚
-    vue: {
-        loaders: {
-            css: 'style!css!autoprefixer',
-        }
-    },
-    // è½¬åŒ–æˆes5çš„è¯­æ³•
-    // babel: {
-    //     presets: ['es2015'],
-    //     plugins: ['transform-runtime']
-    // },
-    resolve: {
-        // requireæ—¶çœç•¥çš„æ‰©å±•åï¼Œå¦‚ï¼šrequire('module') ä¸éœ€è¦module.js
-        extensions: ['', '.js', '.vue'],
-        // åˆ«åï¼Œå¯ä»¥ç›´æ¥ä½¿ç”¨åˆ«åæ¥ä»£è¡¨è®¾å®šçš„è·¯å¾„ä»¥åŠå…¶ä»–
-        alias: {
-            filter: path.join(__dirname, './src/filters'),
-            components: path.join(__dirname, './src/component')
+            // ½âÎö.vueÎÄ¼ş
+            {
+                test: /\.vue$/,
+                loader: 'vue'
+            },
+            // ×ª»¯ES6µÄÓï·¨
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /node_modules/
+            },
+            // ±àÒëcss²¢×Ô¶¯Ìí¼ÓcssÇ°×º
+            {
+                test: /\.css$/,
+                loader: 'style!css!autoprefixer-loader?browsers=last 2 versions'
+            },
+            //.scss ÎÄ¼şÏëÒª±àÒë£¬scss¾ÍĞèÒªÕâĞ©¶«Î÷£¡À´±àÒë´¦Àí
+            //install css-loader style-loader sass-loader node-sass --save-dev
+            {
+                test: /\.less$/,
+                loader: 'style!css!less?sourceMap!autoprefixer-loader?browsers=last 2 versions'
+            },
+            // Í¼Æ¬×ª»¯£¬Ğ¡ÓÚ8K×Ô¶¯×ª»¯Îªbase64µÄ±àÂë
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'url-loader?limit=8192'
+            },
+            //htmlÄ£°å±àÒë£¿
+            {
+                test: /\.(html|tpl)$/,
+                loader: 'html-loader'
+            }, {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url',
+                query: {
+                    limit: 10000,
+                    name: '../fonts/[name].[hash:7].[ext]'
+                }
+            }
+        ],
+        // .vueµÄÅäÖÃ¡£ĞèÒªµ¥¶À³öÀ´ÅäÖÃ£¬ÆäÊµÃ»Ê²Ã´±ØÒª--ÒòÎªÎÒÉ¾ÁËÒ²Ã»±£´í£¬²»¹ıÕâÀï¾ÍÁôÕâ°Ñ£¬ÒòÎª¹ÙÍøÎÄµµÀïÊÇ¿ÉÒÔÓĞµ¥¶ÀµÄÅäÖÃµÄ¡£
+        vue: {
+            loaders: {
+                css: 'style!css!autoprefixer-loader?browsers=last 2 versions',
+            }
+        },
+        resolve: {
+            // requireÊ±Ê¡ÂÔµÄÀ©Õ¹Ãû£¬Èç£ºrequire('module') ²»ĞèÒªmodule.js
+            extensions: ['', '.js', '.vue'],
+            // ±ğÃû£¬¿ÉÒÔÖ±½ÓÊ¹ÓÃ±ğÃûÀ´´ú±íÉè¶¨µÄÂ·¾¶ÒÔ¼°ÆäËû
+            alias: {
+                filter: path.join(__dirname, './src/filters'),
+                components: path.join(__dirname, './src/component')
+            }
         }
     }
-    // },
-    //è¿™é‡Œç”¨äºå®‰è£…babelï¼Œå¦‚æœåœ¨æ ¹ç›®å½•ä¸‹çš„.babelrcé…ç½®äº†ï¼Œè¿™é‡Œå°±ä¸å†™äº†
-    // babel: {
-    //     presets: ['es2015', 'stage-0'],
-    //     plugins: ['transform-runtime']
-    // }
 }
