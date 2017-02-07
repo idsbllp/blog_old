@@ -6,9 +6,14 @@
 <style>
     header {
         padding: 20px 0 10px 0;
+        height: 48px;
         text-align: center;
         font-size: 48px;
-        color: #fff;
+        color: #aaa;
         background-color: rgba(122, 122, 122, .5);
+
+        &:hover {
+            color: red;
+        }
     }
 </style>

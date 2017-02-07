@@ -1,13 +1,17 @@
 <template>
-    <div class="apps">
+    <div class="app">
         <headers></headers>
-        <bg class="asd"></bg>
+        <bg></bg>
+        <article-list>
+            
+        </article-list>
     </div>
 </template>
 
 <script>
     import headers from './public/header.vue';
     import bg from './public/bg.vue';
+    import articleList from './public/list.vue'
 
     export default {
         el: '#app',
@@ -19,11 +23,16 @@
         components: {
             headers,
             bg,
+            articleList,
         }
     }
 </script>
 <style>
     body {
         margin: 0;
+    }
+    ::selection {
+        color: #fff;
+        background-color: #000;
     }
 </style>
