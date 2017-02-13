@@ -60,7 +60,6 @@ module.exports = {
             alias: {
                 filter: path.join(__dirname, './src/filters'),
                 components: path.join(__dirname, './src/component'),
-                // 'jquery': path.resolve(rootDir, './lib/jquery.min.js')
             },
         },
     },

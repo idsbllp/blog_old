@@ -1,12 +1,33 @@
 
 import Vue from "vue";
+import VueRouter from "vue-router";
 
-import app from '../template/app.vue';
+import App from '../template/app.vue';
 Vue.config.debug = true; //开启错误提示
 
-new Vue(app);
+Vue.use(VueRouter);
 
-import "../fonts/Arsenal-Regular.ttf";
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+
+const routes = [
+    { path: '/', component: App },
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+]
+
+const router = new VueRouter({
+    routes // （缩写）相当于 routes: routes
+});
+    
+const apps = new Vue({
+    router,
+    el: '#app',
+    render: render => render(App)
+});
+
+
+// import "../fonts/Arsenal-Regular.ttf";
 import "../css/index.css";
 
 // online editor. see: http://lanfly.github.io/laneditor/doc/

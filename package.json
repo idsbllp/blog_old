@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/idsbllp/blog/issues"
   },
+  "browser": {
+    "vue": "vue/dist/vue.common"
+  },
   "homepage": "https://github.com/idsbllp/blog#readme",
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
@@ -35,6 +38,8 @@
     "vue": "^2.1.10",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^10.1.2",
+    "vue-resource": "^1.2.0",
+    "vue-router": "^2.2.0",
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.1.10",
     "webpack-merge": "^2.6.0"
