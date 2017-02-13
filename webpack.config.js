@@ -1,12 +1,14 @@
+var myModule = 'admin';
+
 var path = require('path');
 var webpack = require('webpack');
 var extractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './src/index/js/index.js',
+    entry: './src/' + myModule + '/js/index.js',
     output: {
-        path: './public/static/index/js/',
-        publicPath: './application/index/view/index/',
+        path: './public/static/' + myModule + '/js/',
+        publicPath: './application/' + myModule + '/view/index/',
         filename: 'index.js'
     },
     module: {
@@ -57,11 +59,16 @@ module.exports = {
             extensions: ['', '.js', '.vue'],
             alias: {
                 filter: path.join(__dirname, './src/filters'),
-                components: path.join(__dirname, './src/component')
-            }
+                components: path.join(__dirname, './src/component'),
+                // 'jquery': path.resolve(rootDir, './lib/jquery.min.js')
+            },
         },
     },
     plugins: [
-        new extractTextPlugin('../css/index.css')
-    ]
+        new extractTextPlugin('../css/index.css'),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
+    ],
 }

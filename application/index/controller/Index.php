@@ -23,7 +23,7 @@ class Index extends Controller
         if ($imgUrl) {
             $imgUrl = 'http://cn.bing.com/' . $imgUrl;
         } else {
-            $imgUrl = 'http://localhost/blog/public/static/index/img/aierwen.jpeg';
+            $imgUrl = 'http://localhost/tp5/public/static/index/img/aierwen.jpeg';
         }
         $img = imagecreatefromjpeg($imgUrl);
 

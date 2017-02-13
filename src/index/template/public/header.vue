@@ -3,7 +3,7 @@
         IDSBLLP
     </header>
 </template>
-<style>
+<style lang="less">
     header {
         padding: 20px 0 10px 0;
         height: 48px;
@@ -13,7 +13,7 @@
         background-color: rgba(122, 122, 122, .5);
 
         &:hover {
-            color: red;
+            color: #ccc;
         }
     }
 </style>

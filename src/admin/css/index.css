@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Malapropism888d8761d17f59';
+    src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.gif');
+    src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.gif?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.bmp') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.jpg') format('truetype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.png#Malapropism') format('svg');
+}
+
+.css888d8761d17f59 {
+    font-family: 'Malapropism888d8761d17f59';
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+}
+
+::selection {
+    color: #fff;
+    background-color: #000;
+}
+

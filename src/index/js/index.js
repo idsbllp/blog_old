@@ -1,5 +1,4 @@
 
-//es6语法：
 import Vue from "vue";
 
 import app from '../template/app.vue';

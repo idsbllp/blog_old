@@ -1,5 +1,5 @@
 <?php
-namespace app\page\model;
+namespace app\verify\model;
 
 use think\Model;
 

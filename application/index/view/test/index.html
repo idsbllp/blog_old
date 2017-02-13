@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>{:captcha_img()}</div>
+    
+    <input type="" name="" id="captcha">
+    <input type="submit" name="">
+
+    <script type="text/javascript">
+        captcha.addEventListener('change', () => {
+            fetch('http://localhost/blog/public/index.php/captcha.html').then(res => {
+                console.log(res);
+            }).catch(res => {
+                console.log('errror ', res);
+            });
+        });
+    </script>
+</body>
+</html>

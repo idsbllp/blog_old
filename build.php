@@ -40,7 +40,21 @@ return [
   'page'     => [
       '__file__'   => ['common.php'],
       '__dir__'    => ['controller', 'model', 'view'],
-      'controller' => ['Index', 'Type'],
+      'controller' => ['Index'],
+      'model'      => ['User'],
+      'view'       => ['index/index'],
+  ],
+  'admin'     => [
+      '__file__'   => ['common.php', 'config.php'],
+      '__dir__'    => ['controller', 'model', 'view'],
+      'controller' => ['Index'],
+      'model'      => ['User'],
+      'view'       => ['index/index'],
+  ],
+  'verify'     => [
+      '__file__'   => ['common.php', 'config.php'],
+      '__dir__'    => ['controller', 'model', 'view'],
+      'controller' => ['Index'],
       'model'      => ['User'],
       'view'       => ['index/index'],
   ],
