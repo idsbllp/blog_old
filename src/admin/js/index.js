@@ -1,19 +1,20 @@
 
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
+
+Vue.config.debug = true; //开启错误提示
+Vue.use(VueRouter);
+Vue.use(VueResource);
 
 import App from '../template/app.vue';
-Vue.config.debug = true; //开启错误提示
-
-Vue.use(VueRouter);
-
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
+import All from '../template/article/all.vue'
+import Add from '../template/article/add.vue'
 
 const routes = [
-    { path: '/foo', component: Foo },
-    { path: '/bar', component: Bar }
-]
+    { path: '/all-article', component: All },
+    { path: '/add-article', component: Add }
+];
 
 const router = new VueRouter({
     routes // （缩写）相当于 routes: routes
@@ -26,13 +27,12 @@ const apps = new Vue({
 });
 
 
-// import "../fonts/Arsenal-Regular.ttf";
-import "../css/index.css";
+// import '../fonts/Arsenal-Regular.ttf';
+import '../css/index.css';
 
 // online editor. see: http://lanfly.github.io/laneditor/doc/
-import "../css/LanEditor.css";
-import "../../../node_modules/highlight.js/styles/agate.css";
+import '../css/LanEditor.css';
+import '../../../node_modules/highlight.js/styles/agate.css';
 
 // pictures
-
-import "../img/07224141D943EBC03B8BD9DCCC09658A.jpg"
+import '../img/07224141D943EBC03B8BD9DCCC09658A.jpg';

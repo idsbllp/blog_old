@@ -1,55 +1,63 @@
 <template>
-    <div class="app">
+    <div class="blog">
         <div class="admin-left">
-            <user></user>
+            <user :userInfor.sync="userInfor"></user>
             <navigator></navigator>
         </div>
         <div class="admin-right">
+            <myHeader :userInfor.sync="userInfor"></myHeader>
             <router-view></router-view>
         </div>
-
-        <!-- <editor></editor>     -->
     </div>
 </template>
 
 <script>
 
-    import editor from './public/editor.vue';
     import user from './public/user.vue';
     import navigator from './public/navigator.vue';
+    import myHeader from './public/myHeader.vue';
 
     export default {
         data() {
             return {
                 title: 'idsbllp',
+                userInfor: {
+                    username: 'idsbllp',
+                    realname: '李立平',
+                },
             }
         },
         components: {
-            editor,
             user,
             navigator,
+            myHeader,
         }
     }
 </script>
 <style lang="less">
+    .blog {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
     .admin-left {
-        position: fixed;
+        position: absolute;
         top: 0;
+        left: 0;
         width: 250px;
         height: 100%;
         background: #ccc;
-        z-index: -1;
+        z-index: 2;
         border-right: 1px solid #ddd;
     }
     .admin-right {
-        position: fixed;
+        position: absolute;
         top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
         left: 250px;
+        right: 0;
+        bottom: 0;
         background: #aaa;
-        z-index: -2;
+        z-index: 1;
         border-left: 1px solid #bbb;
         overflow-x: hidden;
         overflow-y: scroll; 

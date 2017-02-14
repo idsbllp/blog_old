@@ -50,12 +50,10 @@
 
 <script>
     export default {
+        props: ['userInfor'],
         data () {
             return {
-                userInfor: {
-                    username: 'idsbllp',
-                    realname: '李立平',
-                },
+                
             }
         }
     }
