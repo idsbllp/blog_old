@@ -1,24 +1,22 @@
 <template>
     <div class="app">
-        <h1>Hello App!</h1>
-          <p>
-            <!-- 使用 router-link 组件来导航. -->
-            <!-- 通过传入 `to` 属性指定链接. -->
-            <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-            <router-link to="/">Go to /</router-link>
-            <router-link to="/foo">Go to Foo</router-link>
-            <router-link to="/bar">Go to Bar</router-link>
-          </p>
-          <!-- 路由出口 -->
-          <!-- 路由匹配到的组件将渲染在这里 -->
-          <router-view></router-view>
-        <!-- <editor></editor> -->
+        <div class="admin-left">
+            <user></user>
+            <navigator></navigator>
+        </div>
+        <div class="admin-right">
+            <router-view></router-view>
+        </div>
+
+        <!-- <editor></editor>     -->
     </div>
 </template>
 
 <script>
 
     import editor from './public/editor.vue';
+    import user from './public/user.vue';
+    import navigator from './public/navigator.vue';
 
     export default {
         data() {
@@ -28,9 +26,32 @@
         },
         components: {
             editor,
+            user,
+            navigator,
         }
     }
 </script>
-<style>
-
+<style lang="less">
+    .admin-left {
+        position: fixed;
+        top: 0;
+        width: 250px;
+        height: 100%;
+        background: #ccc;
+        z-index: -1;
+        border-right: 1px solid #ddd;
+    }
+    .admin-right {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        left: 250px;
+        background: #aaa;
+        z-index: -2;
+        border-left: 1px solid #bbb;
+        overflow-x: hidden;
+        overflow-y: scroll; 
+    }
 </style>

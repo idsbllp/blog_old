@@ -8,10 +8,9 @@
     font-family: 'Malapropism888d8761d17f59';
 }
 
-body {
-    margin: 0;
+/*body {
     font-family: 'Open Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
-}
+}*/
 
 ::selection {
     color: #fff;

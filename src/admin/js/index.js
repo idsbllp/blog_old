@@ -11,7 +11,6 @@ const Foo = { template: '<div>foo</div>' }
 const Bar = { template: '<div>bar</div>' }
 
 const routes = [
-    { path: '/', component: App },
     { path: '/foo', component: Foo },
     { path: '/bar', component: Bar }
 ]
@@ -34,3 +33,6 @@ import "../css/index.css";
 import "../css/LanEditor.css";
 import "../../../node_modules/highlight.js/styles/agate.css";
 
+// pictures
+
+import "../img/07224141D943EBC03B8BD9DCCC09658A.jpg"

@@ -24,11 +24,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: extractTextPlugin.extract('style-loader','css-loader','autoprefixer-loader?browsers=last 2 versions')
+                loader: extractTextPlugin.extract('style-loader','css-loader','autoprefixer-loader?browsers=last 7 versions')
             },
             {
                 test: /\.less$/,
-                loader: 'style!css!less?sourceMap!autoprefixer-loader?browsers=last 2 versions'
+                loader: 'less!style!css!autoprefixer-loader?browsers=last 7 versions'
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -50,18 +50,19 @@ module.exports = {
                 }
             }
         ],
-        vue: {
-            loaders: {
-                css: 'style!css!autoprefixer-loader?browsers=last 2 versions',
-            }
-        },
-        resolve: {
-            extensions: ['', '.js', '.vue'],
-            alias: {
-                filter: path.join(__dirname, './src/filters'),
-                components: path.join(__dirname, './src/component'),
-            },
-        },
+    },
+    vue: { // vue 的配置
+        loaders: {
+            js: 'babel',
+            less: extractTextPlugin.extract("css!less!autoprefixer-loader?browsers=last 7 versions")
+        }
+    },
+    resolve: {
+        // extensions: ['', '.js', '.vue'],
+        // alias: {
+        //     filter: path.join(__dirname, './src/filters'),
+        //     components: path.join(__dirname, './src/component'),
+        // },
     },
     plugins: [
         new extractTextPlugin('../css/index.css'),
