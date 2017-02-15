@@ -11,7 +11,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('/tp5/public/index/index/getBiyingPic');
+        background-image: url('/blog/public/index/index/getBiyingPic');
         background-repeat: no-repeat;
         background-size: 100% 100%;
         opacity: .8;

@@ -1,4 +1,4 @@
-var myModule = 'admin';
+var myModule = 'index';
 
 var path = require('path');
 var webpack = require('webpack');

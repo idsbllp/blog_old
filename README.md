@@ -1,31 +1,65 @@
-## BE
+## Progress
 
-### install dependencies
+![Progress](http://progressed.io/bar/10)
+
+## Build
+
+### 1. clone the project
 
 ```
-    composer install
+    git clone https://github.com/idsbllp/blog.git
 ```
 
-## FE
+### 2. BE
 
-### install dependencies
++ Install dependencies
+
+    `
+        composer install
+    `
+
++ Hide entry file(index.php) or not.
+
++ Install GD library
+    - Ubuntu:  
+        
+        `sudo apt-get install php-gd`
+
+    - CentOs:
+
+        `yum install php-gd`
+
+    - Windows: open php.ini and modify to this
+
+        `extension=php_gd2.dll`
+
++ restart apache
+
+### 2. FE
+
+### Install dependencies
 
 ```
     npm (cnpm)  install
 ```
 
-### run
+### Run
 
 ```
     npm start
 ```
+Page: go to [http://localhost/yourPath/blog/public](http://localhost/yourPath/blog/public)
+
+Background management interface: go to [http://localhost/yourPath/blog/public/index.php/admin](http://localhost/yourPath/blog/public/index.php/admin)
+
+
 
 
 ~~~
 www  WEB部署目录（或者子目录）
 ├─application           应用目录
 │  ├─common             公共模块目录（可以更改）
-│  ├─module_name        模块目录
+│  ├─index              模块目录
 │  │  ├─config.php      模块配置文件
 │  │  ├─common.php      模块函数文件
 │  │  ├─controller      控制器目录
@@ -59,7 +93,7 @@ www  WEB部署目录（或者子目录）
 │  ├─phpunit.xml        phpunit配置文件
 │  └─start.php          框架入口文件
 │
-├─src                   静态资源源码 -> public/static
+├─src                   静态资源源码 --> public/static
 ├─extend                扩展类库目录
 ├─runtime               应用的运行时目录（可写，可定制）
 ├─vendor                第三方类库目录（Composer依赖库）
