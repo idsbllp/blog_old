@@ -10,3 +10,13 @@
         </ul>
     </main>
 </template>
+
+<style lang="less">
+    .article-list {
+        height: 400px;
+    }
+</style>
+
+<script>
+    
+</script>

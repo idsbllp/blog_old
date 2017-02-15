@@ -60,6 +60,17 @@
         z-index: 1;
         border-left: 1px solid #bbb;
         overflow-x: hidden;
-        overflow-y: scroll; 
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 9px;
+        }
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: red;
+            outline: 2px solid blue;
+        }
     }
 </style>

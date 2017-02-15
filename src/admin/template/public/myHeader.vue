@@ -6,10 +6,6 @@
 
 <style lang="less">
     .admin-header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
         height: 75px;
         background: #f4f4f6;
     }

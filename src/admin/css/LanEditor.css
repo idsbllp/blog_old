@@ -18,6 +18,10 @@ body {
     color: #333;
     background-color: #fff;
     height: 100%;
+    overflow: hidden;
+}
+body:-webkit-scrollbar {
+    width: 0;
 }
 
 article,

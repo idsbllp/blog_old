@@ -2,6 +2,7 @@ var myModule = 'admin';
 
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 var extractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -24,11 +25,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: extractTextPlugin.extract('style-loader','css-loader','autoprefixer-loader?browsers=last 7 versions')
+                loader: extractTextPlugin.extract('style-loader','css-loader?importLoaders=1','postcss-loader')
             },
             {
                 test: /\.less$/,
-                loader: 'less!style!css!autoprefixer-loader?browsers=last 7 versions'
+                loader: 'less!style!css!postcss'
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -54,8 +55,13 @@ module.exports = {
     vue: { // vue 的配置
         loaders: {
             js: 'babel',
-            less: extractTextPlugin.extract("css!less!autoprefixer-loader?browsers=last 7 versions")
+            less: extractTextPlugin.extract("css!less!postcss")
         }
+    },
+    postcss: () => {
+        return [
+            require('autoprefixer')
+        ];
     },
     resolve: {
         // extensions: ['', '.js', '.vue'],
