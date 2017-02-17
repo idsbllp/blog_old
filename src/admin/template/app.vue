@@ -33,6 +33,7 @@
         }
     }
 </script>
+
 <style lang="less">
     .blog {
         position: relative;
@@ -55,21 +56,20 @@
         left: 250px;
         right: 0;
         bottom: 0;
-        background: #aaa;
+        background: #f8f9fa;
         z-index: 1;
         border-left: 1px solid #bbb;
         overflow-x: hidden;
         overflow-y: scroll;
         &::-webkit-scrollbar {
-            width: 9px;
+            width: 12px;
         }
         &::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            /*box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/
         }
         &::-webkit-scrollbar-thumb {
-            border-radius: 5px;
-            background-color: red;
-            outline: 2px solid blue;
+            border-radius: 6px;
+            background-color: #999;
         }
     }
 </style>

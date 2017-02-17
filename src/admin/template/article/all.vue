@@ -11,12 +11,12 @@
     </main>
 </template>
 
+<script>
+    
+</script>
+
 <style lang="less">
     .article-list {
         height: 400px;
     }
 </style>
-
-<script>
-    
-</script>

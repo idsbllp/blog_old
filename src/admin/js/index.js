@@ -8,12 +8,21 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 
 import App from '../template/app.vue';
-import All from '../template/article/all.vue'
-import Add from '../template/article/add.vue'
+import All from '../template/article/all.vue';
+import Tags from '../template/article/tags.vue';
+import About from '../template/article/about.vue';
 
 const routes = [
-    { path: '/all-article', component: All },
-    { path: '/add-article', component: Add }
+    {
+        path: '/about-article',
+        component: About
+    }, {
+        path: '/all-article',
+        component: All
+    }, {
+        path: '/article-tags',
+        component: Tags
+    }
 ];
 
 const router = new VueRouter({
@@ -26,8 +35,6 @@ const apps = new Vue({
     render: render => render(App)
 });
 
-
-// import '../fonts/Arsenal-Regular.ttf';
 import '../css/index.css';
 
 // online editor. see: http://lanfly.github.io/laneditor/doc/

@@ -5,7 +5,7 @@ use think\Controller;
 
 class Index extends Controller
 {
-    public function index() {
+    public function index(){
 
         $title = 'tp5';
         $this->assign('title', $title);
@@ -14,7 +14,7 @@ class Index extends Controller
     public function test() {
         return CACHE_PATH;
     }
-    public function getBiyingPic() {
+    public function getBiyingPic(){
         $url = 'http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1';
         $str = file_get_contents($url);
         $str = json_decode($str);
@@ -32,5 +32,9 @@ class Index extends Controller
         imagejpeg($img);
         imagedestroy($img);
         exit();
+    }
+    public function getM(){
+        $res = \app\index\model\User::checkIsNewUser();
+        dump($res);
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <section class="user-infor-con">
-        <a href="##" class="user-logo_anchor">
+        <a href="#/about-article" class="user-logo_anchor">
             <img class="user-logo_img" src="../../img/head.jpg" alt="header img">
         </a>
         <ul class="user-infor">
@@ -13,6 +13,17 @@
         </ul>
     </section>
 </template>
+
+<script>
+    export default {
+        props: ['userInfor'],
+        data () {
+            return {
+                
+            }
+        }
+    }
+</script>
 
 <style lang="less">
     .user-infor-con {
@@ -47,14 +58,3 @@
         list-style: none;
     }
 </style>
-
-<script>
-    export default {
-        props: ['userInfor'],
-        data () {
-            return {
-                
-            }
-        }
-    }
-</script>

@@ -9,18 +9,18 @@ class User extends Model
     public function login() {
 
     }
-    public function checkIsNewUser($username = '') {
+    public static function checkIsNewUser($username = 'idsbllp') {
         $boolean = Db::name('user')->where('username', $username)->find();
         if (is_null($boolean)) {
-            return [
-                'data': true,
-                'status': 'this username has been registed! Please choose another one'
-            ]; 
+            return json_encode([
+                'data' => true,
+                'status' => 'congratulations, you can regsit this username'
+            ]); 
         } else {
-            return [
-                'data': false,
-                'status': 'congratulations, you can regsit this username'
-            ];
+            return json_encode([
+                'data' => false,
+                'status' => 'this username has been registed! Please choose another one'
+            ]);
         }
     }
 }

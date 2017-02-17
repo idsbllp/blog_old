@@ -1,15 +1,8 @@
 <template>
-    <header class="admin-header">
-        {{userInfor.username}}
+    <header class="admin-header css888d8761d17f59" hover>
+        {{userInfor.username.toUpperCase()}}
     </header>
 </template>
-
-<style lang="less">
-    .admin-header {
-        height: 75px;
-        background: #f4f4f6;
-    }
-</style>
 
 <script>
     export default {
@@ -23,8 +16,21 @@
         },
         mounted () {
             console.log(this.$http);
-            this.userInfor.username = 'llp';
+            this.userInfor.username = 'idsbllp';
         }
     }
-    // import '../public/user.vue'
 </script>
+
+<style lang="less">
+    .admin-header {
+        height: 78px;
+        text-align: center;
+        font-size: 48px;
+        color: #aaa;
+        line-height: 78px;
+        background-color: rgba(122, 122, 122, .5);
+        background: #fff;
+        border-bottom: 1px solid #f1f1f1;
+        transition: color .3s;
+    }
+</style>

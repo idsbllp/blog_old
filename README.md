@@ -53,6 +53,9 @@ Page: go to [http://localhost/yourPath/blog/public](http://localhost/yourPath/bl
 Background management interface: go to [http://localhost/yourPath/blog/public/index.php/admin](http://localhost/yourPath/blog/public/index.php/admin)
 
 
+### refer: 
+[vue+node 实现的一套简易博客系统,包括博客前端展示页和博客后台管理页](https://github.com/linguowei/myblog)
+[LanEditor](http://lanfly.github.io/laneditor/doc/plugins.html)
 
 
 ~~~

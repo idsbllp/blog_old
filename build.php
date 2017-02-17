@@ -32,8 +32,8 @@ return [
   'index'     => [
       '__file__'   => ['common.php'],
       '__dir__'    => ['behavior', 'controller', 'model', 'view'],
-      'controller' => ['Index', 'Test', 'UserType'],
-      'model'      => ['User', 'UserType'],
+      'controller' => ['Index'],
+      'model'      => ['User'],
       'view'       => ['index/index'],
   ],
   // 其他更多的模块定义
@@ -48,7 +48,7 @@ return [
       '__file__'   => ['common.php', 'config.php'],
       '__dir__'    => ['controller', 'model', 'view'],
       'controller' => ['Index'],
-      'model'      => ['User'],
+      'model'      => ['User', 'Article'],
       'view'       => ['index/index'],
   ],
   'verify'     => [
