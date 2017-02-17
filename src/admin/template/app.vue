@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
     import user from './public/user.vue';
     import navigator from './public/navigator.vue';
     import myHeader from './public/myHeader.vue';

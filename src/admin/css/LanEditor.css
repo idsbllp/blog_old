@@ -20,9 +20,6 @@ body {
     height: 100%;
     overflow: hidden;
 }
-body:-webkit-scrollbar {
-    width: 0;
-}
 
 article,
 aside,

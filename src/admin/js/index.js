@@ -34,5 +34,3 @@ import '../css/index.css';
 import '../css/LanEditor.css';
 import '../../../node_modules/highlight.js/styles/agate.css';
 
-// pictures
-import '../img/07224141D943EBC03B8BD9DCCC09658A.jpg';

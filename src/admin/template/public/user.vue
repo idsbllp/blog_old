@@ -1,7 +1,7 @@
 <template>
     <section class="user-infor-con">
         <a href="##" class="user-logo_anchor">
-            <img class="user-logo_img" src="../../img/07224141D943EBC03B8BD9DCCC09658A.jpg" alt="header img">
+            <img class="user-logo_img" src="../../img/head.jpg" alt="header img">
         </a>
         <ul class="user-infor">
             <li class="user-infor_item">

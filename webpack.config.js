@@ -1,16 +1,19 @@
-var myModule = 'index';
 
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var extractTextPlugin = require('extract-text-webpack-plugin');
+// var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
 module.exports = {
-    entry: './src/' + myModule + '/js/index.js',
+    entry: {
+        'static/index/js/index': './src/index/js/index.js',
+        'static/admin/js/index': './src/admin/js/index.js',
+        vendor: ['vue', 'jquery', 'highlight.js']
+    },
     output: {
-        path: './public/static/' + myModule + '/js/',
-        publicPath: './application/' + myModule + '/view/index/',
-        filename: 'index.js'
+        path: './public/',
+        filename: '[name].js'
     },
     module: {
         loaders: [
@@ -33,9 +36,10 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                loader: 'url-loader?limit=8192',
+                loader: 'url',
                 query: {
-                    name: '../img/[name].[ext]'
+                    limit: 8124,
+                    name: './static/img/[name].[ext]'
                 }
             },
             {
@@ -47,7 +51,7 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name: '../fonts/[name].[ext]'
+                    name: './static/fonts/[name].[ext]'
                 }
             }
         ],
@@ -64,17 +68,23 @@ module.exports = {
         ];
     },
     resolve: {
-        // extensions: ['', '.js', '.vue'],
+        extensions: ['', '.js', '.vue'],
         // alias: {
         //     filter: path.join(__dirname, './src/filters'),
         //     components: path.join(__dirname, './src/component'),
         // },
     },
     plugins: [
-        new extractTextPlugin('../css/index.css'),
+        new extractTextPlugin('[name]/../../css/index.css'),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
         }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+       }),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'static/utils/vendor.js' }),
     ],
 }

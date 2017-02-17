@@ -9,7 +9,12 @@
 }
 
 body {
+    margin: 0;
     font-family: 'Open Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+}
+::selection {
+    color: #fff;
+    background-color: #000;
 }
 
 

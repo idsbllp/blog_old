@@ -11,7 +11,8 @@
 <script>
     import headers from './public/header.vue';
     import bg from './public/bg.vue';
-    import articleList from './public/list.vue'
+    import articleList from './public/list.vue';
+    import '../img/asd.jpg';
 
     export default {
         el: '#app',
@@ -28,11 +29,5 @@
     }
 </script>
 <style>
-    body {
-        margin: 0;
-    }
-    ::selection {
-        color: #fff;
-        background-color: #000;
-    }
+
 </style>
