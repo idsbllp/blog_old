@@ -62,13 +62,13 @@
         overflow-x: hidden;
         overflow-y: scroll;
         &::-webkit-scrollbar {
-            width: 12px;
+            width: 8px;
         }
         &::-webkit-scrollbar-track {
             /*box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/
         }
         &::-webkit-scrollbar-thumb {
-            border-radius: 6px;
+            border-radius: 4px;
             background-color: #999;
         }
     }

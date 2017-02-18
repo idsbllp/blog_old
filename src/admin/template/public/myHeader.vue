@@ -15,7 +15,6 @@
             }
         },
         mounted () {
-            console.log(this.$http);
             this.userInfor.username = 'idsbllp';
         }
     }
@@ -23,6 +22,8 @@
 
 <style lang="less">
     .admin-header {
+        position: relative;
+        z-index: 4;
         height: 78px;
         text-align: center;
         font-size: 48px;

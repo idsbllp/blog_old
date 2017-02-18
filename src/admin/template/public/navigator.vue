@@ -20,7 +20,7 @@
         color: #fff;
         font-size: 16px;
         text-align: center;
-        border-bottom: 1px solid #737272;
+        border-bottom: 1px dashed #fff;
     }
     .router-link-active {
         color: #007fff;

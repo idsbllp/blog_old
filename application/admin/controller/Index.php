@@ -14,6 +14,7 @@ class Index extends Controller
     }
     public function getAllTags(){
         $res = Article::tags();
-        dump($res);
+        // dump($res);
+        return $res;
     }
 }

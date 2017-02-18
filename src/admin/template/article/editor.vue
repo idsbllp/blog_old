@@ -22,7 +22,7 @@
                     PluginsMode: false
                 });
                 if (lan.status == false){
-                    console.log(lan.message);
+                    // console.log(lan.message);
                     return ;
                 } else {
                     // 默认保存LanEditor快速指南文件

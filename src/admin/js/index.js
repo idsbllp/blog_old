@@ -11,6 +11,7 @@ import App from '../template/app.vue';
 import All from '../template/article/all.vue';
 import Tags from '../template/article/tags.vue';
 import About from '../template/article/about.vue';
+import TagInfor from '../template/article/tag_infor.vue';
 
 const routes = [
     {
@@ -21,8 +22,12 @@ const routes = [
         component: All
     }, {
         path: '/article-tags',
-        component: Tags
-    }
+        component: Tags,
+        children: [{
+            path: '/article-tags/:tag',
+            component: TagInfor
+        }],
+    }, 
 ];
 
 const router = new VueRouter({
