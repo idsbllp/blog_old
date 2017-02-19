@@ -57,5 +57,9 @@
     .tag-infor-con {
         height: 100%;
         background: #e9e9e9;
+        overflow: scroll;
+        .router-link-active {
+            text-decoration: none;
+        }
     }
 </style>

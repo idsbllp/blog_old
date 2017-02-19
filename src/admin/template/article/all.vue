@@ -1,7 +1,7 @@
 <template>
     <main>
         <template v-for="article in articles">
-            <article class="article-list">
+            <!-- <article class="article-list">
                 <h2>
                     {{article.name}}
                     <router-link :to="{path: '/article-tags/' + lable}" v-for="lable in article.tag_name" class="lable">{{lable}}</router-link>
@@ -9,17 +9,19 @@
                 <div class="article-brief">
                     {{article.brief}}
                 </div>
-                <div class="article-content" v-compiledMarkdown>{{article.content}}</div><!-- 还必须在一行 -->
+                <div class="article-content" v-compiledMarkdown>{{article.content}}</div>
                 <time class="article-time">
                     {{new Date(article.date).format('yyyy-MM-dd hh:mm:ss')}}
                 </time>
-            </article>
+            </article> -->
+            <article-intro :article.sync="article"></article-intro>
         </template>
     </main>
 </template>
 
 <script>
     import marked from 'marked';
+    import articleIntro from './articleIntro.vue';
 
     export default {
         data () {
@@ -36,56 +38,14 @@
                 this.articles = body;
                 // console.log(body);
             });
-
-            Date.prototype.format = function(format) {
-                var o = {
-                    "M+": this.getMonth() + 1, //month
-                    "d+": this.getDate(), //day
-                    "h+": this.getHours(), //hour
-                    "m+": this.getMinutes(), //minute
-                    "s+": this.getSeconds(), //second
-                    "q+": Math.floor((this.getMonth() + 3) / 3), //quarter
-                    "S": this.getMilliseconds() //millisecond
-                }
-                if (/(y+)/.test(format)) {
-                    format = format.replace(RegExp.$1,(this.getFullYear() + "").substr(4 - RegExp.$1.length));
-                }
-                for (var k in o){
-                    if (new RegExp("(" + k + ")").test(format)){
-                        format = format.replace(RegExp.$1,RegExp.$1.length == 1 ? o[k] :("00" + o[k]).substr(("" + o[k]).length));
-                    }
-                }
-                return format;
-            }
-
-            marked.setOptions({
-                renderer: new marked.Renderer(),
-                gfm: true,
-                tables: true,
-                breaks: false,
-                pedantic: false,
-                sanitize: false,
-                smartLists: true,
-                smartypants: false,
-            });
         },
-        directives: {
-            compiledMarkdown: {
-                bind: function(el){
-                    el.innerHTML = marked(el.innerText);
-                    if(el.querySelector('pre')){
-                        el.querySelector('pre').style.display = "none"
-                    }
-                    if(el.querySelector('blockquote')){
-                        el.querySelector('blockquote').style.display = "none"
-                    }
-                }
-            }
+        components: {
+            articleIntro
         },
     }
 </script>
 
-<style lang="less">
+<!-- <style lang="less">
     .article-list {
         margin-top: -20px;
         margin-left: 10px;
@@ -122,4 +82,4 @@
         letter-spacing: 0;
         font-style: italic;
     }
-</style>
+</style> -->
