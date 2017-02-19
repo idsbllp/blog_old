@@ -15,8 +15,11 @@ import TagInfor from '../template/article/tag_infor.vue';
 
 const routes = [
     {
+        path: '/',
+        redirect: '/about-article'
+    }, {
         path: '/about-article',
-        component: About
+        component: About,
     }, {
         path: '/all-article',
         component: All
@@ -33,7 +36,7 @@ const routes = [
 const router = new VueRouter({
     routes // （缩写）相当于 routes: routes
 });
-    
+
 const apps = new Vue({
     router,
     el: '#app',

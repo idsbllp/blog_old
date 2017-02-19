@@ -78,7 +78,7 @@ module.exports = {
         new extractTextPlugin('[name]/../../css/index.css'),
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {

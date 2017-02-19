@@ -1,14 +1,19 @@
 <template>
     <main>
-        about article
+        <editor></editor>
     </main>
 </template>
 
 <script>
-    
+    import editor from './editor.vue';
     export default {
         
+        components: {
+            editor,
+        }
     }
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+    
+</style>

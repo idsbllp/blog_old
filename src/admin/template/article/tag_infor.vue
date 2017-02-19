@@ -6,7 +6,20 @@
 
 <script>
     export default {
+        data () {
+            return {
 
+            }
+        },
+        mounted () {
+            
+            console.log(this.$route.params.tag);
+        },
+        watch: {
+            $route (to, from) {
+                // console.log(to);
+            }
+        }
     }
 </script>
 

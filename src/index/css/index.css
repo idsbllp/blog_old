@@ -3,6 +3,11 @@
     src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.gif');
     src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.gif?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.bmp') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.jpg') format('truetype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.png#Malapropism') format('svg');
 }
+@font-face {
+    font-family: 'Helvetica-Neue-8f730c59517f59';
+    src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.gif');
+    src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.gif?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.bmp') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.jpg') format('truetype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.png#Helvetica-Neue-LT-Std') format('svg');
+}
 
 .css888d8761d17f59 {
     font-family: 'Malapropism888d8761d17f59';
@@ -10,7 +15,8 @@
 
 body {
     margin: 0;
-    font-family: '-apple-system',PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Helvetica Neue,sans-serif;
+    letter-spacing: 2px;
+    font-family: 'Helvetica-Neue-8f730c59517f59', '-apple-system', SimSun;
 }
 ::selection {
     color: #fff;

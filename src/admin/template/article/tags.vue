@@ -45,12 +45,13 @@
     }
     .tag-infor-nav {
         float: left;
-        width: 100px;
+        width: 150px;
         height: 100%;
         background: #dbdbdb;
         .nav-list {
             display: block;
             height: 40px;
+            font-size: 22px;
         }
     }
     .tag-infor-con {
