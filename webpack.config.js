@@ -9,7 +9,7 @@ module.exports = {
     entry: {
         'static/index/js/index': './src/index/js/index.js',
         'static/admin/js/index': './src/admin/js/index.js',
-        vendor: ['vue', 'jquery', 'highlight.js']
+        vendor: ['vue', 'jquery', 'highlight.js', 'sweetalert', 'marked']
     },
     output: {
         path: './public/',
@@ -53,7 +53,15 @@ module.exports = {
                     limit: 10000,
                     name: './static/fonts/[name].[ext]'
                 }
-            }
+            },
+            {
+                test: './node_modules/highlight.js/lib/highlight.js',
+                loader: 'expose?highlight.js'
+            },
+            {
+                test: './node_modules/marked/lib/marked.js',
+                loader: 'expose?marked'
+            },
         ],
     },
     vue: { // vue 的配置
@@ -79,6 +87,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
+            marked: 'marked',
+            hljs: 'highlight.js',
+            // swal: 'sweetalert'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {

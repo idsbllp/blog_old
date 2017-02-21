@@ -6,10 +6,17 @@
 
 <script>
     import editor from './editor.vue';
+    import LanEditor from "../../js/LanEditor.js";
+
     export default {
         
         components: {
             editor,
+        },
+        methods: {
+            showInfor: function () {
+                // console.log(LanEditor.GetRenderHTML());
+            }
         }
     }
 </script>

@@ -8,9 +8,10 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 
 import App from '../template/app.vue';
+import About from '../template/article/about.vue';
 import All from '../template/article/all.vue';
 import Tags from '../template/article/tags.vue';
-import About from '../template/article/about.vue';
+import Add from '../template/article/add.vue';
 import TagInfor from '../template/article/tag_infor.vue';
 
 const routes = [
@@ -30,7 +31,10 @@ const routes = [
             path: '/article-tags/:tag',
             component: TagInfor
         }],
-    }, 
+    }, {
+        path: '/add-article',
+        component: Add
+    },
 ];
 
 const router = new VueRouter({
@@ -47,5 +51,7 @@ import '../css/index.css';
 
 // online editor. see: http://lanfly.github.io/laneditor/doc/
 import '../css/LanEditor.css';
-import '../../../node_modules/highlight.js/styles/agate.css';
+import '../../../node_modules/highlight.js/styles/atom-one-light.css';
+import '../../../node_modules/sweetalert/dist/sweetalert.css';   
+// import '../../../node_modules/highlight.js/styles/monokai.css';
 

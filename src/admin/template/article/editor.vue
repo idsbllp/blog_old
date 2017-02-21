@@ -1,20 +1,34 @@
 <template>
     <section id="edit">
-        <textarea id="editor" name="editor"></textarea>
+        <textarea id="editor" name="editor" @change="showInfor"></textarea>
         <div id="show"></div>
     </section>
 </template>
 
 <script>
-    import LanEditor from "../../js/LanEditor.js"
+    import LanEditor from "../../js/LanEditor.js";
     
     export default {
         data () {
             return {
-                title: 'editor'
+                title: 'editor',
+
             }
         },
         mounted () {
+            // 删去上次的缓存
+            let sessionArticleName = '';
+            let sessionNames = [];
+            for (let sessionName in localStorage) {
+                sessionNames.push(sessionName);
+            }
+            sessionNames.forEach((val, idx, arr) => {
+                if (val.match(/\d+\$article/g)) {
+                    sessionArticleName = val;
+                }
+            });
+            localStorage.removeItem(sessionArticleName);
+
             $(document).ready(function(){
                 var lan = LanEditor.init({
                     textelem: "editor",
@@ -22,14 +36,13 @@
                     PluginsMode: false
                 });
                 if (lan.status == false){
-                    // console.log(lan.message);
                     return ;
                 } else {
                     // 默认保存LanEditor快速指南文件
                     // 获取文件创建的时间
                     var createTime = LanEditor.Time.GetTimestamp();
                     // 文件名
-                    LanEditor.File.CurOpenFile.name = "LanEditor快速指南";
+                    LanEditor.File.CurOpenFile.name = "article";
                     // 创建时间
                     LanEditor.File.CurOpenFile.time = createTime;
                     // 保存文件
@@ -39,36 +52,38 @@
                 }
             });
         },
+        methods: {
+            showInfor: function () {
+                // console.log(document.querySelector('#editor').innerHTML);
+                // console.log($('#editor').text());
+            }
+        }
     }
 </script>
 
 <style lang="less">
     #edit {
-        width: 1000px;
-        height: 600px;
-        border-right: 1px dashed #666;
-        padding: 5px;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
     }
     #editor {
+        box-sizing: border-box;
         float: left;
         padding: 5px;
-        width: 49%;
+        width: 50%;
         height: 100%;
-        background: #fff;
+        border: 1px solid #ccc;
     }
     #show {
+        box-sizing: border-box;
         float: left;
-        width: 49%;
-        height: 100%;
-        overflow: auto;
-        right: 0px;
-        top: 0px;
         padding: 5px;
+        width: 50%;
+        height: 100%;
         font-size: 14px;
-        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        color: #fff;
         border-left: 1px dashed #666;
         background: #ccc;
-        color: #fff;
     }
 </style>

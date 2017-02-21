@@ -15,7 +15,9 @@
 </template>
 
 <script>
-    import marked from 'marked';
+    // import marked from 'marked';
+    // import highlight from 'highlight.js';
+
     if (!Date.prototype.format) {
         Date.prototype.format = function(format) {
             var o = {
@@ -38,7 +40,7 @@
             return format;
         };
     }
-    console.log(12122222222);
+
     export default {
         props: ['article'],
         data () {
@@ -56,10 +58,10 @@
                 sanitize: false,
                 smartLists: true,
                 smartypants: false,
+                highlight: function (code) {
+                    return hljs.highlightAuto(code).value;
+                }
             });
-        },
-        deactivated () {
-            this.article = ''
         },
         directives: {
             compiledMarkdown: {
@@ -99,6 +101,7 @@
         text-align: center;
         background: #007fff;
         border-radius: 5px;
+        font-family: inherit;
     }
     .article-brief {
         font-size: 18px;

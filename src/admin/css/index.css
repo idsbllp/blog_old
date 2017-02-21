@@ -18,9 +18,10 @@
 }
 
 body {
-    font-family: 'Helvetica-Neue-8f730c59517f59', '-apple-system', SimSun;
+    // font-family: 'Helvetica-Neue-8f730c59517f59';
+    font-family: 'Crimson Text', '-apple-system', SimSun;
     background: #f8f9fa;
-    letter-spacing: 2px;
+    letter-spacing: .5px;
 }
 
 ::selection {
@@ -32,4 +33,10 @@ body {
 }
 *[hover]:hover {
     color: #007fff;
+}
+
+.lang-js {
+    display: block;
+    padding-left: 5px;
+    background: #fafafa;
 }

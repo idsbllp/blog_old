@@ -1,4 +1,4 @@
-import hljs from 'highlight.js';
+// import hljs from 'highlight.js';
 var LanEditor = {
 
     //构造函数，初始化变量，注册按键监听
@@ -81,8 +81,8 @@ var LanEditor = {
                 "font-family": "Menlo, Monaco, Consolas, Courier New, monospace",
                 "font-weight": 1.3,
                 "outline": "none",
-                "background-color": "#23241f",
-                "color": "#f8f8f2"
+                "background-color": "#fff",
+                "color": "#666"
             });
         })(this.TextElem);
         //注册监听

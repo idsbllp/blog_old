@@ -50,8 +50,7 @@
         background: #dbdbdb;
         .nav-list {
             display: block;
-            height: 40px;
-            font-size: 22px;
+            font-size: 20px;
         }
     }
     .tag-infor-con {
