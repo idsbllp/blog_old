@@ -2,10 +2,11 @@
     <main class="tags-con">
         <nav class="tag-infor-nav">
             <template  v-for="tag in tags">
-                <router-link :to="{path: '/article-tags/' + tag.tag_name}" hover class="nav-list">
-                    {{tag.tag_name}}
+                <router-link :to="{path: '/article-tags/' + tag}" hover class="nav-list" v-bind:class="{'no-tag': tag === '暂无标签'}">
+                    {{tag}}
                 </router-link>
             </template>
+            <div class="nav-list add-tag">添加标签</div>
         </nav>
         <section class="tag-infor-con">
             <router-view></router-view>
@@ -52,6 +53,9 @@
             display: block;
             font-size: 20px;
         }
+        .no-tag {
+            color: #3f2c2c;
+        }
     }
     .tag-infor-con {
         height: 100%;
@@ -60,5 +64,9 @@
         .router-link-active {
             text-decoration: none;
         }
+    }
+    .add-tag {
+        color: #333;
+        cursor: pointer;
     }
 </style>

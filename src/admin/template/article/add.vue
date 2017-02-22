@@ -2,13 +2,13 @@
     <section class="add-article-con">
         <h3>添加文章</h3>
         <div class="add-content">
-            <input type="text" class="article_name" placeholder="请输入文章标题" v-on:input="saveArticletoSession">
+            <input type="text" class="article_name" placeholder="请输入文章标题">
             <div class="article_tags" v-on:click="deleteTag">
                 标签: <span class="tag" v-for="tag in tags">{{tag}}</span>
                 <div class="add-tag_con" v-if="inputtingTag">
-                    <input type="text" class="add-tag_input" v-focus placeholder="十字以内" v-on:keyup.enter="submitAddTag">
+                    <input type="text" class="add-tag_input" v-focus placeholder="六字以内" v-on:keyup.enter="submitAddTag">
                     <input type="submit" class="add-tag_btn" value="提交" v-on:click="submitAddTag">
-                    <input type="submit" class="add-tag_btn" value="取消" v-on:click="cancleAddtag">
+                    <input type="submit" class="add-tag_btn" value="取消" v-on:click="cancleAddTag">
                 </div>
                 <i class="add-tag_btn" v-on:click="addTag" v-if="!inputtingTag">添加</i>
             </div>
@@ -65,22 +65,25 @@
             },
             submitAddTag: function (e) {
                 let tag = $('.add-tag_input').val().trim();
-                if (tag.length > 10) {
-                    console.log('输入太长');
+                if (tag.length > 6) {
+                    // console.log('输入太长');
+                    swal('标签名太长');
                     return;
                 }
                 if (tag.length === 0) {
-                    console.log('请输入标签名');
+                    swal('请输入标签名')
+                    // console.log('请输入标签名');
                     return;
                 }
                 if (~this.tags.indexOf(tag)) {
-                    console.log('已存在，请重新输入');
+                    swal('标签已存在，请重新输入');
+                    // console.log('已存在，请重新输入');
                 } else {
                     this.tags.push(tag);
                     this.inputtingTag = false;
                 }
             },
-            cancleAddtag: function () {
+            cancleAddTag: function () {
                 this.inputtingTag = false;
             },
             saveArticletoSession: function () {
@@ -102,6 +105,7 @@
                 }
 
                 // 发送数据 并存sessionStorage
+                // 获取输入的文章内容
                 let sessionArticleName = '';
                 let sessionNames = [];
                 for (let sessionName in localStorage) {
@@ -117,7 +121,9 @@
                     swal('请输入文章内容！');
                     return;
                 }
+                // 保存session
                 sessionStorage.setItem('sessionArticle', JSON.stringify(article));
+
                 this.$http.post('/blog/public/admin/index/addArticle', {
                     article: JSON.stringify(article)
                 }).then(res => {

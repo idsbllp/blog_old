@@ -3,7 +3,6 @@ var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var extractTextPlugin = require('extract-text-webpack-plugin');
-// var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
 module.exports = {
     entry: {

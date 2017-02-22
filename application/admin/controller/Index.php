@@ -16,6 +16,7 @@ class Index extends Controller
     public function getAllTags() {
         // dump(Article::tags());
         $tags = Article::tags();
+        // dump($tags);
         // $blogs = '';
         // foreach ($tags as $key => $value) {
         //     foreach ($value as $key => $value) {

@@ -1,8 +1,8 @@
 <template>
     <article class="article-list">
-        <h2>
+        <h2 class="article-name">
             {{article.name}}
-            <router-link :to="{path: '/article-tags/' + lable}" v-for="lable in article.tag_name" class="lable">{{lable}}</router-link>
+            <router-link :to="{path: '/article-tags/' + lable}" v-for="lable in article.tag_name" class="lable" v-bind:class="{'no-tag': lable === '暂无标签'}">{{lable}}</router-link>
         </h2>
         <div class="article-brief">
             {{article.brief}}
@@ -90,15 +90,19 @@
         &:last-child {
             border-bottom: none;
         }
+        .no-tag {
+            background: #999;
+            color: #fff;
+        }
     }
     .lable {
         margin-left: 15px;
-        padding-left: 15px;
-        padding-right: 12px;
+        padding: 2px 10px 2px 13px;
         font-size: 20px;
         color: #fff;
         line-height: 0;
         text-align: center;
+        vertical-align: middle;
         background: #007fff;
         border-radius: 5px;
         font-family: inherit;

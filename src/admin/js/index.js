@@ -8,7 +8,6 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 
 import App from '../template/app.vue';
-import About from '../template/article/about.vue';
 import All from '../template/article/all.vue';
 import Tags from '../template/article/tags.vue';
 import Add from '../template/article/add.vue';
@@ -17,20 +16,22 @@ import TagInfor from '../template/article/tag_infor.vue';
 const routes = [
     {
         path: '/',
-        redirect: '/about-article'
-    }, {
-        path: '/about-article',
-        component: About,
+        redirect: '/all-article'
     }, {
         path: '/all-article',
         component: All
     }, {
         path: '/article-tags',
         component: Tags,
-        children: [{
-            path: '/article-tags/:tag',
-            component: TagInfor
-        }],
+        children: [
+            {
+                path: '/article-tags/:tag',
+                component: TagInfor
+            },/* {
+                path: '/',
+                redirect: '/article-tags/暂无标签'
+            }*/
+        ],
     }, {
         path: '/add-article',
         component: Add

@@ -7,8 +7,19 @@ use think\Db;
 class Article extends Model
 {
     public static function tags() {
-        $allTags = Db::name('tag')->field('tag_name')->select();
+        $allTagsObj = Db::name('tag')->field('tag_name')->select();
         // $allTags = Db::query('SELECT * FROM blog_tag');
+        $allTags = [];
+        foreach ($allTagsObj as $key => $value) {
+            foreach ($value as $name => $tag) {
+                if ($tag === '暂无标签') {
+                    array_unshift($allTags, $tag);
+                } else {
+                    array_push($allTags, $tag);
+                }
+            }
+        }
+        // dump($allTags);
         return $allTags;
     }
     public static function getArtileByTag($tag) {
@@ -22,7 +33,9 @@ class Article extends Model
     }
     public static function addArticle($article) {
         $article = json_decode($article['article']);
-        $tags = $article->tags ? implode(',', $article->tags) : '暂无标签';
+
+        $tags = $article->tags ? $article->tags : ['暂无标签'];
+        // dump($tags);
         $name = $article->name;
         
         $hasBlog = Db::name('category')->where('name', $name)->select();
@@ -34,13 +47,13 @@ class Article extends Model
         $articleInfor = [
             'id' => $article->id,
             'name' => $name,
-            'tag_name' => $tags,
+            'tag_name' => implode(',', $tags),
             'brief' => $article->brief,
             'date' => $article->date,
             'content' => $article->content
         ];
         // 更新标签
-        foreach ($article->tags as $key => $value) {
+        foreach ($tags as $key => $value) {
             $hasTag = Db::name('tag')->where('tag_name', $value)->find();
             if (is_null($hasTag)) {
                 $tagInfor = [
@@ -51,7 +64,6 @@ class Article extends Model
                 Db::name('tag')->insert($tagInfor);
             } else {
                 $blogs = Db::query('SELECT blogs FROM blog_tag WHERE tag_name = :tag', [$value]);
-                // dump($blogs);
                 $data = [
                     'blogs' => $blogs[0]['blogs'] . '\n' . $name,
                     'tag' => $value

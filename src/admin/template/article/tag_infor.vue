@@ -1,7 +1,7 @@
 <template>
     <section>
         <template v-if="articlesOfTag.length === 0">
-            no no no
+            <h2 class="no-article">这个标签下暂无文章</h2>
         </template>
         <template v-else v-for="article in articlesOfTag">
             <articleIntro :article="article"></articleIntro>
@@ -63,5 +63,8 @@
 </script>
 
 <style lang="less">
-    
+    .no-article {
+        padding-left: 20px;
+        color: #333;
+    }
 </style>
