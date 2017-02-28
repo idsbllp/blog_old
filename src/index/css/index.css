@@ -16,11 +16,27 @@
 body {
     margin: 0;
     letter-spacing: 2px;
-    font-family: 'Helvetica-Neue-8f730c59517f59', '-apple-system', SimSun;
+    font-family: 'Crimson Text', '-apple-system', SimSun;
+    // font-family: 'Helvetica-Neue-8f730c59517f59', '-apple-system', SimSun;
+}
+i {
+    font-style: normal;
+    font-family: 'Helvetica-Neue-8f730c59517f59';
 }
 ::selection {
     color: #fff;
     background-color: #000;
 }
+*[hover] {
+    transition: color .15s;
+}
+*[hover]:hover {
+    color: #007fff;
+}
 
+.lang-js {
+    display: block;
+    padding-left: 5px;
+    background: #fafafa;
+}
 

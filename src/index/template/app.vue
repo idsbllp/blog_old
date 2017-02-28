@@ -2,23 +2,23 @@
     <div class="app">
         <headers></headers>
         <bg></bg>
-        <article-list>
-            
-        </article-list>
+        <router-view :userInfor.sync="userInfor"></router-view>
     </div>
 </template>
 
 <script>
     import headers from './public/header.vue';
     import bg from './public/bg.vue';
-    import articleList from './public/list.vue';
-    import '../img/asd.jpg';
+    import articleList from './article/article_list.vue';
 
     export default {
-        el: '#app',
         data() {
             return {
                 title: 'idsbllp',
+                userInfor: {
+                    username: 'idsbllp',
+                    realname: '李立平'
+                },
             }
         },
         components: {
@@ -29,5 +29,7 @@
     }
 </script>
 <style>
-
+    .app {
+        overflow: hidden;
+    }
 </style>

@@ -61,6 +61,23 @@ class Index extends Controller
         // dump($res);
         return $res;
     }
+    public function addTag() {
+        $request = Request::instance();
+        $tag = $request->param()['tag'];
+        // dump($tag);
+        if ('POST' === strtoupper($request->method())) {
+            $res = Article::addtag($tag);
+            return [
+                'status' => '添加标签成功',
+                'code' => $res
+            ];
+        } else {
+            return [
+                'status' => 'POST only',
+                'code' => 0
+            ];
+        }
+    }
     public function addArticle() {
         $request = Request::instance();
         $method = $request->method();

@@ -6,7 +6,10 @@
                     {{tag}}
                 </router-link>
             </template>
-            <div class="nav-list add-tag">添加标签</div>
+            <div class="nav-list add-tag" v-on:click="addTag">添加标签</div>
+            <div class="add-tag_con" v-if="inputtingTag">
+                <input type="text" class="add-tag_input" v-focus placeholder="六字以内" v-on:keyup.enter="submitAddTag" v-on:blur="cancleAddTag">
+            </div>
         </nav>
         <section class="tag-infor-con">
             <router-view></router-view>
@@ -17,9 +20,13 @@
 <script>
     import editor from './editor.vue';
     export default {
+        components: {
+            editor,
+        },
         data () {
             return {
-                tags: []
+                tags: [],
+                inputtingTag: false
             }
         },
         mounted () {
@@ -27,8 +34,46 @@
                 this.tags = res.body;
             });
         },
-        components: {
-            editor,
+        methods: {
+            addTag: function () {
+                this.inputtingTag = true;
+            },
+            submitAddTag: function (e) {
+                let value = e.target.value;
+                if (value.trim() === '') {
+                    this.inputtingTag = false;
+                    return;
+                } else {
+                    if (value.trim().length > 6) {
+                        swal('限六字以内');
+                    } else if (~this.tags.indexOf(value)) {
+                        swal('标签已存在，请重新输入');
+                        return;
+                    } else {
+                        this.$http.post('/blog/public/admin/index/addTag', {
+                            tag: value
+                        }).then(res => {
+                            res = res.body;
+                            if (res.code) {
+                                this.tags.push(value);
+                            } else {
+                                swal('添加失败, 原因:', res.status);
+                            }
+                        });
+                    }
+                }
+            },
+            cancleAddTag: function (e) {
+                // console.log('cancle add tag');
+                this.inputtingTag = false;
+            }
+        },
+        directives: {
+            focus: {
+                inserted: function (el) {
+                    el.focus();
+                }
+            }
         }
     }
 </script>
@@ -68,5 +113,11 @@
     .add-tag {
         color: #333;
         cursor: pointer;
+    }
+    .add-tag_input {
+        margin-top: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 30px;
     }
 </style>

@@ -15,8 +15,6 @@
 </template>
 
 <script>
-    // import marked from 'marked';
-    // import highlight from 'highlight.js';
 
     if (!Date.prototype.format) {
         Date.prototype.format = function(format) {
@@ -49,6 +47,7 @@
             }
         },
         mounted () {
+            console.log('admin', marked);
             marked.setOptions({
                 renderer: new marked.Renderer(),
                 gfm: true,
@@ -67,12 +66,6 @@
             compiledMarkdown: {
                 bind: function(el){
                     el.innerHTML = marked(el.innerText);
-                    if(el.querySelector('pre')){
-                        el.querySelector('pre').style.display = "none"
-                    }
-                    if(el.querySelector('blockquote')){
-                        el.querySelector('blockquote').style.display = "none"
-                    }
                 }
             }
         },
@@ -115,6 +108,10 @@
         padding-left: 22px;
         font-size: 20px;
         color: #000;
+        height: auto;
+        pre, img, blockquote {
+            /*display: none;*/
+        }
     }
     .article-time {
         color: #666;

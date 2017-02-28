@@ -2,10 +2,12 @@
 namespace app\index\controller;
 
 use think\Controller;
+use think\Request;
+use app\index\model\Article;
 
 class Index extends Controller
 {
-    public function index(){
+    public function index() {
 
         $title = 'tp5';
         $this->assign('title', $title);
@@ -14,7 +16,7 @@ class Index extends Controller
     public function test() {
         return CACHE_PATH;
     }
-    public function getBiyingPic(){
+    public function getBiyingPic() {
         $url = 'http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1';
         $str = file_get_contents($url);
         $str = json_decode($str);
@@ -33,7 +35,14 @@ class Index extends Controller
         imagedestroy($img);
         exit();
     }
-    public function getM(){
+    public function getArticleByName() {
+        $request = Request::instance();
+        $articleName = $request->param()['name'];
+        $article = Article::getArticleByName($articleName);
+
+        return $article;
+    }
+    public function getM() {
         $res = \app\index\model\User::checkIsNewUser();
         dump($res);
     }

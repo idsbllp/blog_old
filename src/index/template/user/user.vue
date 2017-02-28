@@ -1,14 +1,11 @@
 <template>
     <section class="user-infor-con">
-        <a href="#/about-article" class="user-logo_anchor">
+        <a href="#/" class="user-logo_anchor">
             <img class="user-logo_img" src="../../../img/head.jpg" alt="header img">
         </a>
         <ul class="user-infor">
             <li class="user-infor_item">
-                {{userInfor.username}} ({{userInfor.realname}})
-            </li>
-            <li class="user-infor_item">
-                {{userInfor.username}}
+                <i>{{userInfor.username}}</i> ({{userInfor.realname}})
             </li>
         </ul>
     </section>
@@ -30,8 +27,7 @@
         padding-top: 20px;
         width: 100%;
         height: auto;
-        background: #bbb;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #666;
     }
     .user-logo_anchor {
         display: block;

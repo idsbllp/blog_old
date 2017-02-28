@@ -7,7 +7,6 @@
 </template>
 
 <script>
-    // import marked from 'marked';
     import articleIntro from './articleIntro.vue';
 
     export default {

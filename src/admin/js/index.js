@@ -1,4 +1,3 @@
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
@@ -7,6 +6,7 @@ Vue.config.debug = true; //开启错误提示
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+// 加载router组件
 import App from '../template/app.vue';
 import All from '../template/article/all.vue';
 import Tags from '../template/article/tags.vue';
@@ -39,18 +39,18 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    routes // （缩写）相当于 routes: routes
+    routes
 });
 
 const apps = new Vue({
     router,
     el: '#app',
-    render: render => render(App)
+    render: h => h(App)
 });
 
-import '../css/index.css';
 
 // online editor. see: http://lanfly.github.io/laneditor/doc/
+import '../css/index.css';
 import '../css/LanEditor.css';
 import '../../../node_modules/highlight.js/styles/atom-one-light.css';
 import '../../../node_modules/sweetalert/dist/sweetalert.css';   

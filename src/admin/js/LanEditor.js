@@ -1,4 +1,3 @@
-// import hljs from 'highlight.js';
 var LanEditor = {
 
     //构造函数，初始化变量，注册按键监听

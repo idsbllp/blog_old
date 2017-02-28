@@ -19,17 +19,32 @@ class Article extends Model
                 }
             }
         }
-        // dump($allTags);
         return $allTags;
     }
     public static function getArtileByTag($tag) {
         $articles = Db::name('category')->where('tag_name', 'like', '%'.$tag.'%')->select();
+        // $articles = Db::query('SELECT * FROM blog_category WHERE tag_name LIKE "%' . $tag . '%"');
         return $articles;
     }
     public static function getAllArticle() {
         $articles = Db::name('category')->select();
         // $articles = Db::query('SELECT * FROM blog_category');
         return $articles;
+    }
+    public static function addTag($tag) {
+        $hasTag = Db::name('tag')->where('tag_name', $tag)->find();
+        // $res = 0;
+        if (is_null($hasTag)) {
+            $data = [
+                'id' => null,
+                'tag_name' => $tag,
+                'blogs' => null
+            ];
+            $res = Db::name('tag')->insert($data);
+            return $res;
+        } else {
+            return 0;
+        }
     }
     public static function addArticle($article) {
         $article = json_decode($article['article']);

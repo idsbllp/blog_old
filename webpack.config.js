@@ -88,7 +88,6 @@ module.exports = {
             jQuery: 'jquery',
             marked: 'marked',
             hljs: 'highlight.js',
-            // swal: 'sweetalert'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
