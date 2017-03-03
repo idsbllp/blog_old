@@ -35,10 +35,10 @@
             });
         },
         methods: {
-            addTag: function () {
+            addTag () {
                 this.inputtingTag = true;
             },
-            submitAddTag: function (e) {
+            submitAddTag (e) {
                 let value = e.target.value;
                 if (value.trim() === '') {
                     this.inputtingTag = false;
@@ -63,14 +63,14 @@
                     }
                 }
             },
-            cancleAddTag: function (e) {
+            cancleAddTag (e) {
                 // console.log('cancle add tag');
                 this.inputtingTag = false;
             }
         },
         directives: {
             focus: {
-                inserted: function (el) {
+                inserted (el) {
                     el.focus();
                 }
             }

@@ -76,10 +76,11 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.vue'],
-        // alias: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
         //     filter: path.join(__dirname, './src/filters'),
         //     components: path.join(__dirname, './src/component'),
-        // },
+        },
     },
     plugins: [
         new extractTextPlugin('[name]/../../css/index.css'),

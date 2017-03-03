@@ -45,7 +45,7 @@
         },
         directives: {
             compiledMarkdown: {
-                bind: function(el){
+                bind (el) {
                     el.innerHTML = marked(el.innerText);
                 }
             }
