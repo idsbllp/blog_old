@@ -35,7 +35,7 @@
         },
         directives: {
             compiledMarkdown: {
-                bind: function(el){
+                bind (el) {
                     el.innerHTML = marked(el.innerText);
                 }
             }
@@ -44,9 +44,9 @@
 </script>
 
 <style lang="less">
-    /*.article-content {
+    .article-content {
         pre, img, blockquote {
             display: none;
         }
-    }*/
+    }
 </style>

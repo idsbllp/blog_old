@@ -78,6 +78,7 @@
     .hp-main {
         box-sizing: border-box;
         padding: 10px;
+        padding-bottom: 70px;
         position: fixed;
         top: 78px;
         left: 22%;

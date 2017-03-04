@@ -36,7 +36,7 @@
             }
         },
         methods: {
-            deleteTag: function (e) {
+            deleteTag (e) {
                 let target = e.target;
                 if (target.nodeName.toLowerCase() === 'span') {
                     let tag = target.innerText;
@@ -60,10 +60,10 @@
                     // }
                 }
             },
-            addTag: function () {
+            addTag () {
                 this.inputtingTag = true;
             },
-            submitAddTag: function (e) {
+            submitAddTag (e) {
                 let tag = $('.add-tag_input').val().trim();
                 if (tag.length > 6) {
                     // console.log('输入太长');
@@ -83,13 +83,13 @@
                     this.inputtingTag = false;
                 }
             },
-            cancleAddTag: function () {
+            cancleAddTag () {
                 this.inputtingTag = false;
             },
-            saveArticletoSession: function () {
+            saveArticletoSession () {
                 console.log('update')
             },
-            submitAddArticle: function () {
+            submitAddArticle () {
                 let article = {
                     id: null,
                     name: $('.article_name').val().trim(),
@@ -136,15 +136,10 @@
         },
         directives: {
             focus: {
-                inserted: function (el) {
+                inserted (el) {
                     el.focus();
                 }
             },
-            // saveArticletoSession: {
-            //     update: function () {
-            //         console.log('update');
-            //     }
-            // }
         }
     }
 </script>

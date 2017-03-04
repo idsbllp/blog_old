@@ -108,9 +108,8 @@
         padding-left: 22px;
         font-size: 20px;
         color: #000;
-        height: auto;
         pre, img, blockquote {
-            /*display: none;*/
+            display: none;
         }
     }
     .article-time {

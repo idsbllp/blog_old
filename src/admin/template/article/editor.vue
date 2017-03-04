@@ -53,7 +53,7 @@
             });
         },
         methods: {
-            showInfor: function () {
+            showInfor () {
                 // console.log(document.querySelector('#editor').innerHTML);
                 // console.log($('#editor').text());
             }

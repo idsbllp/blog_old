@@ -26,7 +26,7 @@
             this.getArtileByTag(tag);
         },
         methods: {
-            getArtileByTag: function (tag) {
+            getArtileByTag (tag) {
                 if (typeof tag === 'string' && tag.length > 1) {
                     // 本地储存
                     let sessionOfTagArticles = sessionStorage.getItem(tag);
