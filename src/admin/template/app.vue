@@ -17,6 +17,11 @@
     import myHeader from './public/myHeader.vue';
 
     export default {
+        components: {
+            user,
+            navigator,
+            myHeader,
+        },
         data() {
             return {
                 title: 'idsbllp',
@@ -25,11 +30,6 @@
                     realname: '李立平',
                 },
             }
-        },
-        components: {
-            user,
-            navigator,
-            myHeader,
         }
     }
 </script>

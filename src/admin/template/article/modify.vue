@@ -12,12 +12,12 @@
                 </div>
                 <i class="add-tag_btn" v-on:click="addTag" v-if="!inputtingTag">添加</i>
             </div>
-            <textarea v-model="brief" class="article_brief" placeholder="请输入文章简介"></textarea>
+            <textarea v-model="brief" type="text" class="article_brief" placeholder="请输入文章简介"></textarea>
             <h4>输入文章信息</h4>
             <div class="article_content">
-                <editor></editor>
+                <editor :content.sync="content"></editor>
             </div>
-            <div class="submit" v-on:click="submitAddArticle">提交</div>
+            <div class="submit" v-on:click="submitModifyArticle">提交</div>
         </div>
     </section>
 </template>
@@ -36,7 +36,29 @@
             }
         },
         mounted () {
+            const articleName = this.$route.params.article;
+            if (articleName) {
+                const url = `/blog/public/admin/index/getArticleByName/name/${articleName}`;
+                this.$http.get(url).then(res => {
+                    if (res.body.length > 0) {
+                        let article = res.body[0];
 
+                        const {name, brief, content, tag_name, id} = article;
+                        this.articleId = id;
+                        this.name = name;
+                        this.brief = brief;
+                        this.content = content;
+                        this.contentCopy = content;
+                        this.tags = tag_name.split(',');
+                        var e = new KeyboardEvent("keyup", {bubbles : true, cancelable : true, key : "Q", char : "Q", shiftKey : true});
+                        $('#editor')[0].dispatchEvent(e);
+                    } else {
+                        this.redirectToErrorPage();
+                    }
+                });
+            } else {
+                this.redirectToErrorPage();
+            }
         },
         methods: {
             deleteTag (e) {
@@ -81,9 +103,9 @@
             cancleAddTag () {
                 this.inputtingTag = false;
             },
-            submitAddArticle () {
+            submitModifyArticle () {
                 let article = {
-                    id: null,
+                    id: this.articleId,
                     name: this.name,
                     tags: this.tags,
                     brief: this.brief,
@@ -103,14 +125,15 @@
                         content = val;
                     }
                 }
+
                 if (!content && !this.content) {
                     swal('请输入文章内容！');
                     return;
                 } else if (content) {
                     article.content = content;
                 }
-                // 发送请求
-                this.$http.post('/blog/public/admin/index/addArticle', {
+
+                this.$http.post('/blog/public/admin/index/modifyArticle', {
                     article: JSON.stringify(article)
                 }).then(res => {
                     res = res.body;
@@ -126,7 +149,14 @@
                     } else {
                         swal(res.status, '', 'error');
                     }
+                }).catch(err => {
+                    console.log(err);
                 })
+            },
+            redirectToErrorPage () {
+                this.$router.replace({
+                    name: '$404'
+                });
             }
         },
         directives: {

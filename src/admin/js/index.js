@@ -11,10 +11,16 @@ import App from '../template/app.vue';
 import All from '../template/article/all.vue';
 import Tags from '../template/article/tags.vue';
 import Add from '../template/article/add.vue';
+import Modify from '../template/article/modify.vue';
 import TagInfor from '../template/article/tag_infor.vue';
+
+const $404 = {
+  template: '<div> 404 NOT FOUND </div>'
+};
 
 const routes = [
     {
+        name: '$index',
         path: '/',
         redirect: '/all-article'
     }, {
@@ -27,15 +33,22 @@ const routes = [
             {
                 path: '/article-tags/:tag',
                 component: TagInfor
-            },/* {
-                path: '/',
-                redirect: '/article-tags/暂无标签'
-            }*/
-        ],
+            }
+        ]
     }, {
         path: '/add-article',
         component: Add
-    },
+    }, {
+        path: '/modify/:article',
+        component: Modify
+    }, {
+        name: '$404',
+        path: '/404',
+        component: $404
+    }, {
+        path: '*',
+        redirect: '404'
+    }
 ];
 
 const router = new VueRouter({

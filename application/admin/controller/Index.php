@@ -14,39 +14,8 @@ class Index extends Controller
         return $this->fetch();        
     }
     public function getAllTags() {
-        // dump(Article::tags());
         $tags = Article::tags();
-        // dump($tags);
-        // $blogs = '';
-        // foreach ($tags as $key => $value) {
-        //     foreach ($value as $key => $value) {
-        //         if ($key === 'blogs') {
-        //             $blogs .= $value . '\n';
-
-        //         }
-        //     }
-        // }
-        // $blogs = explode('\n', $blogs);
-        // array_pop($blogs);
-
-        // dump($blogs);
         return $tags;
-
-
-        // $tags = Article::tags();
-        // $tagsString = '';
-        // foreach ($tags as $key => $value) {
-        //     $tagsString = $tagsString . $value['tag_name'] . ',';
-        // }
-        // $tagsString = array_unique(explode(',', $tagsString));
-        // $res = [];
-        // $index = 0;
-        // foreach ($tagsString as $key => $value) {
-        //     $res[$index++]["tag_name"] = $value;
-        // }
-        // array_pop($res);
-        // return $res;
-        // dump($res);
     }
     public function getArtileByTag() {
         $request = Request::instance();
@@ -64,7 +33,6 @@ class Index extends Controller
     public function addTag() {
         $request = Request::instance();
         $tag = $request->param()['tag'];
-        // dump($tag);
         if ('POST' === strtoupper($request->method())) {
             $res = Article::addtag($tag);
             return [
@@ -78,33 +46,56 @@ class Index extends Controller
             ];
         }
     }
+    public function getArticleByName() {
+        $request = Request::instance();
+        $articleName = $request->param()['name'];
+        $res = Article::getArticleByName($articleName);
+        return $res;
+    }
     public function addArticle() {
         $request = Request::instance();
-        $method = $request->method();
 
-        if ('POST' === strtoupper($method)) {
-            $article = $request->param();
-            $res = Article::addArticle($article);
-            if ($res) {
-                return [
-                    'status' => '添加文章成功',
-                    'code' => $res
-                ];
-            } else {
-                return [
-                    'status' => '文章名重复',
-                    'code' => $res
-                ];
-            }
+        if (strtoupper($request->method()) !== 'POST') {
+            return [
+                'code' => 0,
+                'status' => 'method error, POST only'
+            ]; 
+        }
+
+        $article = $request->param();
+        $res = Article::addArticle($article);
+        if ($res) {
+            return [
+                'status' => '添加文章成功',
+                'code' => 1
+            ];
         } else {
             return [
-                'status' => 'POST only',
+                'status' => '文章名重复',
                 'code' => 0
             ];
         }
-        return [
-            'status' => '添加文章成功',
-            'code' => $res
-        ];
+    }
+    public function modifyArticle() {
+        $request = Request::instance();
+        if (strtoupper($request->method()) !== 'POST') {
+            return [
+                'code' => 0,
+                'status' => 'method error, POST only'
+            ]; 
+        }
+        $article = $request->param();
+        $res = Article::modifyArticle($article);
+        if ($res) {
+            return [
+                'status' => '更新文章成功',
+                'code' => 1
+            ];
+        } else {
+            return [
+                'status' => '更新失败',
+                'code' => 0
+            ];
+        }
     }
 }

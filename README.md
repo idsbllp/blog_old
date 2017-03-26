@@ -12,28 +12,23 @@
 
 ### 2. BE
 
-+ Install dependencies
+#### depoyment
+
+>  + PHP >= 5.4.0
+>  + PDO PHP Extension
+>  + MBstring PHP Extension
+>  + CURL PHP Extension
+> + GD Extension
+
+1. Install dependencies
 
     `
         composer install
     `
 
-+ Hide entry file(index.php) or not.
+2. Hide entry file(index.php) or not.
 
-+ Install GD library
-    - Ubuntu:  
-        
-        `sudo apt-get install php-gd`
-
-    - CentOs:
-
-        `yum install php-gd`
-
-    - Windows: open php.ini and modify to this
-
-        `extension=php_gd2.dll`
-
-+ restart apache
+3. restart apache
 
 ### 2. FE
 

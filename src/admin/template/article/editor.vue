@@ -1,6 +1,6 @@
 <template>
     <section id="edit">
-        <textarea id="editor" name="editor" @change="showInfor"></textarea>
+        <textarea id="editor" name="editor" v-text="content"></textarea>
         <div id="show"></div>
     </section>
 </template>
@@ -9,10 +9,10 @@
     import LanEditor from "../../js/LanEditor.js";
     
     export default {
+        props: ['content'],
         data () {
             return {
                 title: 'editor',
-
             }
         },
         mounted () {
@@ -53,9 +53,11 @@
             });
         },
         methods: {
-            showInfor () {
-                // console.log(document.querySelector('#editor').innerHTML);
-                // console.log($('#editor').text());
+            
+        },
+        watch: {
+            content () {
+                
             }
         }
     }
@@ -85,5 +87,9 @@
         color: #fff;
         border-left: 1px dashed #666;
         background: #ccc;
+        overflow-y: scroll;
+        img {
+            max-width: 80%;
+        }
     }
 </style>

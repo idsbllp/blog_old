@@ -3,6 +3,7 @@
         <h2 class="article-name">
             {{article.name}}
             <router-link :to="{path: '/article-tags/' + lable}" v-for="lable in article.tag_name" class="lable" v-bind:class="{'no-tag': lable === '暂无标签'}">{{lable}}</router-link>
+            <router-link :to="{path: '/modify/' + article.name}" class="modify-btn">修改</router-link>
         </h2>
         <div class="article-brief">
             {{article.brief}}
@@ -47,7 +48,6 @@
             }
         },
         mounted () {
-            console.log('admin', marked);
             marked.setOptions({
                 renderer: new marked.Renderer(),
                 gfm: true,
@@ -110,6 +110,21 @@
         color: #000;
         pre, img, blockquote {
             display: none;
+        }
+    }
+    .modify-btn {
+        float: right;
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 16px;
+        margin-right: 30px;
+        background: #ccc;
+        color: #999;
+        border-radius: 5px;
+        &:hover {
+            text-decoration: none;
         }
     }
     .article-time {

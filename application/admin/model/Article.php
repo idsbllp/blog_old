@@ -46,18 +46,20 @@ class Article extends Model
             return 0;
         }
     }
+    public static function getArticleByName($name) {
+        $res = Db::name('category')->where('name', $name)->select();
+        return $res;
+    }
     public static function addArticle($article) {
         $article = json_decode($article['article']);
 
-        $tags = $article->tags ? $article->tags : ['暂无标签'];
-        // dump($tags);
         $name = $article->name;
-        
         $hasBlog = Db::name('category')->where('name', $name)->select();
         // $hasBlog = Db::query('SELECT * FROM blog_category WHERE name = ?', [$name]);
         if ($hasBlog) {
             return 0;
         }
+        $tags = $article->tags ? $article->tags : ['暂无标签'];
 
         $articleInfor = [
             'id' => $article->id,
@@ -95,5 +97,50 @@ class Article extends Model
         // $res = Db::query('INSERT INTO blog_category (id, name,tag_name, brief, date, content) VALUES (:id, :name, :tag_name, :brief, :date, :content)', $articleInfor);
         $res = Db::name('category')->insert($articleInfor);
         return $res;
+    }
+    public static function modifyArticle($article) {
+        $article = json_decode($article['article']);
+
+        $id = $article->id;
+        $originalArticle = Db::name('category')->where('id', $id)->select()[0];
+
+        if (!$originalArticle) {
+            return 0;
+        }
+        $tags = $article->tags ? $article->tags : ['暂无标签'];
+
+        $articleInfor = [
+            'id' => $id,
+            'name' => $article->name,
+            'tag_name' => implode(',', $tags),
+            'brief' => $article->brief,
+            'date' => $article->date,
+            'content' => $article->content
+        ];
+        // 更新目录(blog_category)的标题，标签，简介，时间，内容
+        $haha = Db::query('UPDATE blog_category SET name = :name, tag_name = :tag_name, brief = :brief, date = :date, content = :content WHERE id = :id', $articleInfor);
+
+        // 更新(bs_tag)标签
+        if ($originalArticle['tag_name'] != $articleInfor['tag_name']) {
+            foreach ($tags as $key => $value) {
+                $hasTag = Db::name('tag')->where('tag_name', $value)->find();
+                if (is_null($hasTag)) {
+                    $tagInfor = [
+                        'id' => null,
+                        'tag_name' => $value,
+                        'blogs' => $articleInfor['name']
+                    ];
+                    Db::name('tag')->insert($tagInfor);
+                } else {
+                    $blogs = Db::query('SELECT blogs FROM blog_tag WHERE tag_name = :tag', [$value]);
+                    $data = [
+                        'blogs' => $blogs[0]['blogs'] . '\n' . $articleInfor['name'],
+                        'tag' => $value
+                    ];
+                    Db::query('UPDATE blog_tag SET blogs = :blogs WHERE tag_name = :tag', $data);
+                }
+            }
+        }
+        return 1;
     }
 }
