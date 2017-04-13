@@ -2,7 +2,7 @@
     <article class="article-list">
         <h2 class="article-name">
             {{article.name}}
-            <router-link :to="{path: '/article-tags/' + lable}" v-for="lable in article.tag_name" class="lable" v-bind:class="{'no-tag': lable === '暂无标签'}">{{lable}}</router-link>
+            <router-link :to="{path: '/index/article-tags/' + lable}" v-for="lable in article.tag_name" class="lable" v-bind:class="{'no-tag': lable === '暂无标签'}">{{lable}}</router-link>
         </h2>
         <div class="article-brief">
             {{article.brief}}

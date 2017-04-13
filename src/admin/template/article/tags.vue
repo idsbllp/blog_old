@@ -2,7 +2,7 @@
     <main class="tags-con">
         <nav class="tag-infor-nav">
             <template  v-for="tag in tags">
-                <router-link :to="{path: '/article-tags/' + tag}" hover class="nav-list" v-bind:class="{'no-tag': tag === '暂无标签'}">
+                <router-link :to="{path: '/index/article-tags/' + tag}" hover class="nav-list" v-bind:class="{'no-tag': tag === '暂无标签'}">
                     {{tag}}
                 </router-link>
             </template>
@@ -64,7 +64,6 @@
                 }
             },
             cancleAddTag (e) {
-                // console.log('cancle add tag');
                 this.inputtingTag = false;
             }
         },

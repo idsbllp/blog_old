@@ -1,8 +1,8 @@
 <template>
     <nav class="user-infor-nav">
-        <router-link to="/all-article" hover class="nav-list">全部文章</router-link>
-        <router-link to="/article-tags" hover class="nav-list">标签管理</router-link>
-        <router-link to="/add-article" hover class="nav-list">添加文章</router-link>
+        <router-link to="/index/all-article" hover class="nav-list">全部文章</router-link>
+        <router-link to="/index/article-tags" hover class="nav-list">标签管理</router-link>
+        <router-link to="/index/add-article" hover class="nav-list">添加文章</router-link>
     </nav>
 </template>
 
