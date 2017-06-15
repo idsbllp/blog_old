@@ -73,7 +73,7 @@ module.exports = {
         return [
             require('autoprefixer')
         ];
-    },
+    }, 
     resolve: {
         extensions: ['', '.js', '.vue'],
         alias: {

@@ -22,6 +22,7 @@
             if (llp) {
                 location.href = '/blog/public/admin/#/';
             }
+            
         },
         mounted () {
             bg();
@@ -39,10 +40,11 @@
                     password
                 }).then(res => {
                     res = res.body;
-                    console.log(res);
                     if (res.code) {
                         sessionStorage.setItem('llp', 'llp');
                         location.href = '/blog/public/admin/#/';
+                    } else {
+                        sweetAlert('账号或密码错误', '向管理员要吧', 'error');
                     }
                 });
             }

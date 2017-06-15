@@ -136,6 +136,11 @@ class Index extends Controller
             ];
         }
     }
+    public function getUser() {
+        $user_id = Session::get('user_id');
+        $user = Db::query('SELECT username, realname, lastlogintime FROM blog_user WHERE id = :user_id', ['user_id' => $user_id]);
+        return $user;
+    }
     public function doLogin() {
         $request = Request::instance();
         if (strtoupper($request->method()) !== 'POST') {

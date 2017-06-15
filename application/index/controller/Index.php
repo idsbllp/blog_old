@@ -9,7 +9,7 @@ class Index extends Controller
 {
     public function index() {
 
-        $title = 'tp5';
+        $title = 'BLOG';
         $this->assign('title', $title);
         return $this->fetch();
     }

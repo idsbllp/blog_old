@@ -1,4 +1,3 @@
-
 <template>
     <div class="blog">
         <div class="admin-left">
@@ -28,6 +27,10 @@
             if (!llp) {
                 location.href = '/blog/public/admin/#/login';
             }
+            this.$http.get('/blog/public/admin/index/getuser').then(res => {
+                console.log(res.body[0]);
+                this.userInfo = res.body[0];
+            });
         },
         data () {
             return {
@@ -37,6 +40,9 @@
                     realname: '李立平',
                 },
             }
+        },
+        mounted () {
+            console.log(this.userInfo);
         }
     }
 </script>
