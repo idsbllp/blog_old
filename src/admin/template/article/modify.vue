@@ -4,13 +4,7 @@
         <div class="add-content">
             <input v-model="name" type="text" class="article_name" placeholder="请输入文章标题">
             <div class="article_tags" v-on:click="deleteTag">
-                标签: <span class="tag" v-for="tag in tags">{{tag}}</span>
-                <div class="add-tag_con" v-if="inputtingTag">
-                    <input type="text" class="add-tag_input" v-focus placeholder="六字以内" v-on:keyup.enter="submitAddTag">
-                    <input type="submit" class="add-tag_btn" value="提交" v-on:click="submitAddTag">
-                    <input type="submit" class="add-tag_btn" value="取消" v-on:click="cancleAddTag">
-                </div>
-                <i class="add-tag_btn" v-on:click="addTag" v-if="!inputtingTag">添加</i>
+                标签: <input v-model="tag">
             </div>
             <textarea v-model="brief" type="text" class="article_brief" placeholder="请输入文章简介"></textarea>
             <h4>输入文章信息</h4>
@@ -32,6 +26,10 @@
         data () {
             return {
                 inputtingTag: false,
+                tag: '',
+                name: '',
+                brief: '',
+                content: '',
                 tags: [],
             }
         },
@@ -49,7 +47,7 @@
                         this.brief = brief;
                         this.content = content;
                         this.contentCopy = content;
-                        this.tags = tag_name.split(',');
+                        this.tag = tag_name;
                         var e = new KeyboardEvent("keyup", {bubbles : true, cancelable : true, key : "Q", char : "Q", shiftKey : true});
                         $('#editor')[0].dispatchEvent(e);
                     } else {

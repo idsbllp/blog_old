@@ -35,6 +35,9 @@ class Index extends Controller
         imagedestroy($img);
         exit();
     }
+    public function getAllArticle() {
+        return Article::getAllArticle();
+    }
     public function getArticleByName() {
         $request = Request::instance();
         $articleName = $request->param()['name'];

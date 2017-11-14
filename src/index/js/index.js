@@ -8,27 +8,40 @@ Vue.use(VueResource);
 
 // 加载router组件
 import App from '../template/app.vue';
-import Article from '../template/article/article_list.vue';
+import Index from '../template/user/index.vue';
+import ArticleList from '../template/article/article_list.vue';
 import ArticleViewer from '../template/article/article_viewer.vue';
 import MyInfor from '../template/user/my_infor.vue';
 // import
 
 const routes = [
     {
-        path: '/article',
-        component: Article,
-        alias: '/',
+        path: '/',
+        component: Index,
         children: [
+            // 首页
             {
-                path: '/article/',
+                path: '/',
+                alias: '/index',
                 component: MyInfor
+            },
+            // 专题
+            {
+                path: '/article',
+                component: ArticleList
+                // children: [
+                // ]
             },
             {
                 path: '/article/:articleName',
                 component: ArticleViewer
+            },
+            {
+                path: 'about',
+                component: MyInfor
             }
         ]
-    }
+    },
 ];
 
 const router = new VueRouter({

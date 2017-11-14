@@ -6,10 +6,6 @@
                     {{tag}}
                 </router-link>
             </template>
-            <div class="nav-list add-tag" v-on:click="addTag">添加标签</div>
-            <div class="add-tag_con" v-if="inputtingTag">
-                <input type="text" class="add-tag_input" v-focus placeholder="六字以内" v-on:keyup.enter="submitAddTag" v-on:blur="cancleAddTag">
-            </div>
         </nav>
         <section class="tag-infor-con">
             <router-view></router-view>
@@ -35,37 +31,7 @@
             });
         },
         methods: {
-            addTag () {
-                this.inputtingTag = true;
-            },
-            submitAddTag (e) {
-                let value = e.target.value;
-                if (value.trim() === '') {
-                    this.inputtingTag = false;
-                    return;
-                } else {
-                    if (value.trim().length > 6) {
-                        swal('限六字以内');
-                    } else if (~this.tags.indexOf(value)) {
-                        swal('标签已存在，请重新输入');
-                        return;
-                    } else {
-                        this.$http.post('/blog/public/admin/index/addTag', {
-                            tag: value
-                        }).then(res => {
-                            res = res.body;
-                            if (res.code) {
-                                this.tags.push(value);
-                            } else {
-                                swal('添加失败, 原因:', res.status);
-                            }
-                        });
-                    }
-                }
-            },
-            cancleAddTag (e) {
-                this.inputtingTag = false;
-            }
+            
         },
         directives: {
             focus: {

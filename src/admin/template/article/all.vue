@@ -20,12 +20,7 @@
         },
         mounted () {
             this.$http.get('/blog/public/admin/index/getAllArticle').then(res => {
-                let body = res.body;
-                body.forEach(val => {
-                    val['tag_name'] = val['tag_name'].split(',');
-                });
-                this.articles = body;
-                // console.log(body);
+                this.articles = res.body;
             });
         },
     }

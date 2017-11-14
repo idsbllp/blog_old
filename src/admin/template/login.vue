@@ -16,7 +16,12 @@
 <script>
     import bg from '../js/canvas.js';
     export default {
-
+        data() {
+            return {
+                username: '',
+                password: ''
+            }
+        },
         beforeCreate () {
             const llp = sessionStorage.getItem('llp');
             if (llp) {

@@ -152,7 +152,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: 'SourceCodePro';
 }
 
 code {

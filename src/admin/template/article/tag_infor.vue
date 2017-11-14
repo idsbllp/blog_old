@@ -38,9 +38,6 @@
                     } else {
                         this.$http.get(`/blog/public/admin/index/getArtileByTag/tag/${tag}`).then(res => {
                             this.articlesOfTag = [];
-                            res.body.forEach(val => {
-                                val['tag_name'] = val['tag_name'].split(',');
-                            });
                             return res.body;
                         }).then(articles => {
                             this.articlesOfTag = articles;

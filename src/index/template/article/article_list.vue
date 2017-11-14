@@ -1,17 +1,17 @@
 <template>
-    <main class="homepage">
-        <nav class="hp-navigator">
-            <user :userInfor.sync="userInfor"></user>
-            <nav>
+    <section class="article-list">
+        <nav class="article-navigator">
+            <nav v-for="(articles, tag) in tags" class="tag">
+                <p> {{tag}} </p>
                 <router-link :to="{path: '/article/' + article.name}" v-for="article in articles" hover class="nav-list">
                     {{article.name}}
                 </router-link>
             </nav>
         </nav>
-        <main class="hp-main">
+<!--         <section class="article-main">
             <router-view></router-view>
-        </main>
-    </main>
+        </section> -->
+    </section>
 </template>
 <script>
     import user from '../user/user.vue';
@@ -19,17 +19,15 @@
         props: ['userInfor'],
         data () {
             return {
-                articles: []
+                tags: []
             }
         },
         mounted () {
-            this.$http.get('/blog/public/admin/index/getAllArticle').then(res => {
-                let body = res.body;
-                body.forEach(val => {
-                    val['tag_name'] = val['tag_name'].split(',');
-                });
-                this.articles = body;
-                this.article = body[0].content;
+            this.$http.get('/blog/public/index/index/getAllArticle').then(res => {
+                this.tags = res.body;
+                // console.log(body)
+                // this.articles = body;
+                // this.article = body[0].content;
             });
         },
         components: {
@@ -38,16 +36,19 @@
     }
 </script>
 <style lang="less">
-    .homepage {
+    .article-list {
+        width: 100%;
+        height: 100%;
         overflow: hidden;
     }
-    .hp-navigator {
-        float: left;
-        width: 22%;
+    .article-navigator {
+        box-sizing: border-box;
+        padding: 20px 0;
         height: 100%;
         overflow-x: auto;
         overflow-y: scroll;
         background-color: rgba(1, 1, 1, .5);
+        border-radius: 20px;
         color: #fff;
         &::-webkit-scrollbar {
             width: 10px;
@@ -67,24 +68,18 @@
         &::-webkit-scrollbar-thumb:window-inactive {
             background: rgba(255, 255, 255, .8);
         }
+        .tag {
+            padding: 10px 10px;
+            border-bottom: 1px dashed #fff;
+            font-size: 22px;
+        }
         .nav-list {
             display: block;
+            padding-left: 30px;
             line-height: 40px;
             color: #fff;
             font-size: 16px;
-            text-align: center;
-            border-bottom: 1px dashed #fff;
             letter-spacing: 1px;
         }
-    }
-    .hp-main {
-        float: left;
-        box-sizing: border-box;
-        padding: 10px;
-        padding-bottom: 70px;
-        width: 78%;
-        height: 100%;
-        background: rgba(204, 204, 204, .6);
-        overflow: scroll;
     }
 </style>

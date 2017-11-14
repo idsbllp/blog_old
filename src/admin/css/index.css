@@ -1,29 +1,21 @@
 @font-face {
-    font-family: 'Malapropism888d8761d17f59';
-    src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.gif');
-    src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.gif?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.bmp') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.jpg') format('truetype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/37509/588c3509f629d819e8b20de5.png#Malapropism') format('svg');
+    font-family: 'SourceCodePro';
+    src: url(../../fonts/SourceCodePro.ttf);
 }
-@font-face {
-    font-family: 'Helvetica-Neue-8f730c59517f59';
-    src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.gif');
-    src: url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.gif?#iefix') format('embedded-opentype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.bmp') format('woff'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.jpg') format('truetype'), url('//cdn.webfont.youziku.com/webfonts/nomal/98137/46882/58a8749bf629d80d9459d89c.png#Helvetica-Neue-LT-Std') format('svg');
-}
-
-.css8f730c59517f59 {
-    font-family: 'Helvetica-Neue-8f730c59517f59';
-}
-
-.css888d8761d17f59 {
-    font-family: 'Malapropism888d8761d17f59';
+.fonts {
+    font-family: 'SourceCodePro';
 }
 
 body {
-    // font-family: 'Helvetica-Neue-8f730c59517f59';
+    margin: 0;
+    letter-spacing: 2px;
     font-family: 'Crimson Text', '-apple-system', SimSun;
-    background: #f8f9fa;
-    letter-spacing: .5px;
 }
 
+i {
+    font-style: normal;
+    font-family: 'SourceCodePro';
+}
 ::selection {
     color: #fff;
     background-color: #000;
@@ -40,3 +32,4 @@ body {
     padding-left: 5px;
     background: #fafafa;
 }
+

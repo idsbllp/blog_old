@@ -1,5 +1,5 @@
 <template>
-    <header class="admin-header css888d8761d17f59" hover>
+    <header class="admin-header fonts" hover>
         {{userInfor.username.toUpperCase()}}
     </header>
 </template>

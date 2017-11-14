@@ -1,7 +1,8 @@
 <template>
     <article>
-        <div class="article-content" v-if="article" v-compiledMarkdown>{{article.content}}</div>
         <div v-title v-if="article">{{article.name}}</div>
+        <h1 class="title">{{article.name}}</h1>
+        <div class="article-content" v-if="article" v-compiledMarkdown>{{article.content}}</div>
     </article>
 </template>
 
@@ -58,6 +59,9 @@
 </script>
 
 <style lang="less">
+    .title {
+        text-align: center;
+    }
     .article-content {
         img {
             display: block;

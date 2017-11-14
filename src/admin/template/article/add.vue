@@ -4,13 +4,7 @@
         <div class="add-content">
             <input v-model="name" type="text" class="article_name" placeholder="请输入文章标题">
             <div class="article_tags" v-on:click="deleteTag">
-                标签: <span class="tag" v-for="tag in tags">{{tag}}</span>
-                <div class="add-tag_con" v-if="inputtingTag">
-                    <input type="text" class="add-tag_input" v-focus placeholder="六字以内" v-on:keyup.enter="submitAddTag">
-                    <input type="submit" class="add-tag_btn" value="提交" v-on:click="submitAddTag">
-                    <input type="submit" class="add-tag_btn" value="取消" v-on:click="cancleAddTag">
-                </div>
-                <i class="add-tag_btn" v-on:click="addTag" v-if="!inputtingTag">添加</i>
+                标签: <input v-model="tag">
             </div>
             <textarea v-model="brief" class="article_brief" placeholder="请输入文章简介"></textarea>
             <h4>输入文章信息</h4>
@@ -32,7 +26,10 @@
         data () {
             return {
                 inputtingTag: false,
-                tags: [],
+                tag: '',
+                name: '',
+                brief: '',
+                tag: '',
             }
         },
         mounted () {
@@ -42,8 +39,7 @@
             deleteTag (e) {
                 let target = e.target;
                 if (target.nodeName.toLowerCase() === 'span') {
-                    let tag = target.innerText;
-                    let index =  this.tags.indexOf(tag);
+                    let tag = this.tag;
 
                     swal({
                         title: `你确定要删除 ${tag} 吗?`,
@@ -53,39 +49,16 @@
                         confirmButtonText: "确认删除",
                         closeOnConfirm: false
                     }, () => {
-                        this.tags.splice(index, 1);
+                        this.tag = '';
                         swal("删除成功!", '', "success");
                     });
                 }
-            },
-            addTag () {
-                this.inputtingTag = true;
-            },
-            submitAddTag (e) {
-                let tag = $('.add-tag_input').val().trim();
-                if (tag.length > 6) {
-                    swal('标签名太长');
-                    return;
-                }
-                if (tag.length === 0) {
-                    swal('请输入标签名')
-                    return;
-                }
-                if (~this.tags.indexOf(tag)) {
-                    swal('标签已存在，请重新输入');
-                } else {
-                    this.tags.push(tag);
-                    this.inputtingTag = false;
-                }
-            },
-            cancleAddTag () {
-                this.inputtingTag = false;
             },
             submitAddArticle () {
                 let article = {
                     id: null,
                     name: this.name,
-                    tags: this.tags,
+                    tag: this.tag,
                     brief: this.brief,
                     content: this.contentCopy,
                     date: Date.now()

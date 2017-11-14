@@ -25,24 +25,7 @@ class Index extends Controller
         return $res;
     }
     public function getAllArticle() {
-        $res = Article::getAllArticle();
-        return $res;
-    }
-    public function addTag() {
-        $request = Request::instance();
-        $tag = $request->param()['tag'];
-        if ('POST' === strtoupper($request->method())) {
-            $res = Article::addtag($tag);
-            return [
-                'status' => '添加标签成功',
-                'code' => $res
-            ];
-        } else {
-            return [
-                'status' => 'POST only',
-                'code' => 0
-            ];
-        }
+        return Article::getAllArticle();
     }
     public function getArticleByName() {
         $request = Request::instance();
