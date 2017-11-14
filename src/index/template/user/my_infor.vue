@@ -12,7 +12,7 @@
 `
 ## IDSBLLP 博客网
 
-之前就一直有个想法写一个，但是一只没做，这个寒假闲着没事，就边学习边做咯。 ThinkPHP+vue+vue-router（由于项目不大，没有使用vuex）。markdown 编辑器没有使用vue原生的，而是GitHub找了一个，感谢 [@ LanEditor](https://github.com/EcjtuNet/LanEditor/)
+之前就一直有个想法写一个，但是一只没做，这个寒假闲着没事，就边学习边做咯。 ThinkPHP5+Vue+VueRouter（由于项目不大，没有使用vuex）。markdown 编辑器没有使用vue原生的，而是GitHub找了一个，感谢 [@ LanEditor](https://github.com/EcjtuNet/LanEditor/)
 
 #### 进度：
 

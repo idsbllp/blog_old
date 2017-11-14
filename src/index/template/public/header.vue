@@ -1,5 +1,5 @@
 <template>
-    <header class="css888d8761d17f59" hover>
+    <header class="fonts" hover>
         IDSBLLP
     </header>
 </template>

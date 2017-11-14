@@ -1,13 +1,13 @@
 <template>
     <div class="app">
-        <headers></headers>
+        <!-- <myHeader></myHeader> -->
         <bg></bg>
         <router-view :userInfor.sync="userInfor"></router-view>
     </div>
 </template>
 
 <script>
-    import headers from './public/header.vue';
+    import myHeader from './public/header.vue';
     import bg from './public/bg.vue';
     import articleList from './article/article_list.vue';
 
@@ -22,7 +22,7 @@
             }
         },
         components: {
-            headers,
+            myHeader,
             bg,
             articleList,
         }

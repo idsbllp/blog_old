@@ -38,9 +38,11 @@
     }
 </script>
 <style lang="less">
+    .homepage {
+        overflow: hidden;
+    }
     .hp-navigator {
-        position: fixed;
-        top: 78px;
+        float: left;
         width: 22%;
         height: 100%;
         overflow-x: auto;
@@ -76,12 +78,10 @@
         }
     }
     .hp-main {
+        float: left;
         box-sizing: border-box;
         padding: 10px;
         padding-bottom: 70px;
-        position: fixed;
-        top: 78px;
-        left: 22%;
         width: 78%;
         height: 100%;
         background: rgba(204, 204, 204, .6);

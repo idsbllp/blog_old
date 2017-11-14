@@ -89,6 +89,8 @@
         background: #ccc;
         overflow-y: scroll;
         img {
+            display: block;
+            margin: 0 auto;
             max-width: 80%;
         }
     }

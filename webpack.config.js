@@ -27,7 +27,9 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: extractTextPlugin.extract('style-loader','css-loader?importLoaders=1','postcss-loader')
+                loader: extractTextPlugin.extract('style-loader','css-loader', {
+                    publicPath: '../../../'
+                }),
             },
             {
                 test: /\.less$/,
@@ -90,11 +92,11 @@ module.exports = {
             marked: 'marked',
             hljs: 'highlight.js',
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-       }),
+       //  new webpack.optimize.UglifyJsPlugin({
+       //      compress: {
+       //          warnings: false
+       //      }
+       // }),
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'static/utils/vendor.js' }),
     ],
 }

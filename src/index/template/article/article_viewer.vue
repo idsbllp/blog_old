@@ -39,7 +39,6 @@
                     }).then(() => {
                         this.article = article;
                     });
-                    console.log(this.article.name)
                 });
             },
         },
@@ -61,6 +60,8 @@
 <style lang="less">
     .article-content {
         img {
+            display: block;
+            margin: 0 auto;
             max-width: 80%;
         }
     }

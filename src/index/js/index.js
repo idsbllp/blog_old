@@ -51,5 +51,4 @@ import "../css/index.css"
 import "../css/LanEditor.css"
 import '../css/atom-one-light.css';
 import '../css/sweetalert.css';
-
-
+import '../../img/asd.jpg';
