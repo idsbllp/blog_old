@@ -34,6 +34,9 @@ class Index extends Controller
         return $res;
     }
     public function addArticle() {
+        if (!Session::get('username')) {
+            return $this->redirect('http://localhost/blog/public/admin/#/login');
+        }
         $request = Request::instance();
 
         if (strtoupper($request->method()) !== 'POST') {
@@ -58,6 +61,9 @@ class Index extends Controller
         }
     }
     public function modifyArticle() {
+        if (!Session::get('username')) {
+            return $this->redirect('http://localhost/blog/public/admin/#/login');
+        }
         $request = Request::instance();
         if (strtoupper($request->method()) !== 'POST') {
             return [
@@ -80,6 +86,9 @@ class Index extends Controller
         }
     }
     public function doRegist() {
+        if (!Session::get('username')) {
+            return $this->redirect('http://localhost/blog/public/admin/#/login');
+        }
         $request = Request::instance();
         if (strtoupper($request->method()) !== 'POST') {
             return [

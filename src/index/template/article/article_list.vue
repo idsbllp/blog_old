@@ -1,12 +1,14 @@
 <template>
     <section class="article-list">
         <nav class="article-navigator">
-            <nav v-for="(articles, tag) in tags" class="tag">
+            <ul v-for="(articles, tag) in tags" class="tag">
                 <p> {{tag}} </p>
-                <router-link :to="{path: '/article/' + article.name}" v-for="article in articles" hover class="nav-list">
-                    {{article.name}}
-                </router-link>
-            </nav>
+                <li v-for="article in articles" class="nav-list">
+                    <router-link :to="{path: '/article/' + article.name}" hover class="nav-list_anchor">
+                        {{article.name}}
+                    </router-link>
+                </li>
+            </ul>
         </nav>
 <!--         <section class="article-main">
             <router-view></router-view>
@@ -25,9 +27,6 @@
         mounted () {
             this.$http.get('/blog/public/index/index/getAllArticle').then(res => {
                 this.tags = res.body;
-                // console.log(body)
-                // this.articles = body;
-                // this.article = body[0].content;
             });
         },
         components: {
@@ -36,37 +35,12 @@
     }
 </script>
 <style lang="less">
-    .article-list {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
     .article-navigator {
-        box-sizing: border-box;
-        padding: 20px 0;
         height: 100%;
-        overflow-x: auto;
-        overflow-y: scroll;
         background-color: rgba(1, 1, 1, .5);
-        border-radius: 20px;
         color: #fff;
         &::-webkit-scrollbar {
-            width: 10px;
-            padding: 0 10px;
-        }
-        &::-webkit-scrollbar-track {
-            border-radius: 5px;
-        }
-        &::-webkit-scrollbar-thumb {
-            border-radius: 5px;
-            background: rgba(255, 255, 255, .5);
-        }
-        &::-webkit-scrollbar-thumb:hover {
-            border-radius: 5px;
-            background: rgba(255, 255, 255, .7);
-        }
-        &::-webkit-scrollbar-thumb:window-inactive {
-            background: rgba(255, 255, 255, .8);
+            width: 0;
         }
         .tag {
             padding: 10px 10px;
@@ -74,12 +48,14 @@
             font-size: 22px;
         }
         .nav-list {
-            display: block;
             padding-left: 30px;
             line-height: 40px;
-            color: #fff;
             font-size: 16px;
             letter-spacing: 1px;
+            list-style: disc inside;
+            &_anchor {
+                color: #fff;
+            }
         }
     }
 </style>

@@ -12,7 +12,7 @@ import Index from '../template/user/index.vue';
 import ArticleList from '../template/article/article_list.vue';
 import ArticleViewer from '../template/article/article_viewer.vue';
 import MyInfor from '../template/user/my_infor.vue';
-// import
+import About from '../template/user/about.vue';
 
 const routes = [
     {
@@ -29,16 +29,16 @@ const routes = [
             {
                 path: '/article',
                 component: ArticleList
-                // children: [
-                // ]
             },
+            // 文章
             {
                 path: '/article/:articleName',
                 component: ArticleViewer
             },
+            // 关于
             {
                 path: 'about',
-                component: MyInfor
+                component: About
             }
         ]
     },

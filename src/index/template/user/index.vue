@@ -53,28 +53,27 @@
     }
     .hp-main {
         float: left;
-        box-sizing: border-box;
-        padding: 10px;
         width: 78%;
         height: 100%;
         background: rgba(204, 204, 204, .6);
-        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: scroll;
         &::-webkit-scrollbar {
             width: 10px;
-            padding: 0 10px;
         }
         &::-webkit-scrollbar-track {
             border-radius: 5px;
+            background-color: #fff;
         }
         &::-webkit-scrollbar-thumb {
             border-radius: 5px;
-            background: rgba(255, 255, 255, .5);
+            background: rgba(102, 102, 102, .5);
         }
         &::-webkit-scrollbar-thumb:hover {
-            border-radius: 5px;
-            background: rgba(255, 255, 255, .7);
+            background: rgba(102, 102, 102, .7);
         }
         &::-webkit-scrollbar-thumb:window-inactive {
+            border-radius: 5px;
             background: #007fff;
         }
     }
