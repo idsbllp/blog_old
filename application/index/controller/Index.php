@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
+use think\Response;
 use app\index\model\Article;
 
 class Index extends Controller
@@ -28,10 +29,10 @@ class Index extends Controller
         }
         $img = imagecreatefromjpeg($imgUrl);
 
-        header('Content-Type: image/jpeg');
         imageinterlace($img, 1);
         imagejpeg($img);
         imagedestroy($img);
+        return response(null, 200)->contentType("image/jpeg");
     }
     public function getAllArticle() {
         return Article::getAllArticle();
