@@ -92,11 +92,11 @@ module.exports = {
             marked: 'marked',
             hljs: 'highlight.js',
         }),
-       //  new webpack.optimize.UglifyJsPlugin({
-       //      compress: {
-       //          warnings: false
-       //      }
-       // }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+       }),
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'static/utils/vendor.js' }),
     ],
 }

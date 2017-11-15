@@ -4,8 +4,9 @@
   "description": "ThinkPHP 5.0 ===============",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --color --progress --watch"
+    "dev": "npm run start",
+    "start": "webpack --color --progress --watch",
+    "build": "export NODE_ENV=production && webpack"
   },
   "repository": {
     "type": "git",

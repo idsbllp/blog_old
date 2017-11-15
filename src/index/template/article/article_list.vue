@@ -36,8 +36,6 @@
 </script>
 <style lang="less">
     .article-navigator {
-        height: 100%;
-        background-color: rgba(1, 1, 1, .5);
         color: #fff;
         &::-webkit-scrollbar {
             width: 0;
@@ -57,5 +55,9 @@
                 color: #fff;
             }
         }
+    }
+    .article-list {
+        min-height: 100%;
+        background-color: rgba(1, 1, 1, .5);
     }
 </style>
