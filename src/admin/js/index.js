@@ -25,7 +25,8 @@ const routes = [
         name: '$index',
         path: '/',
         redirect: '/index/all-article'
-    }, {
+    },
+    {
         name: '$layout',
         path: '/index',
         component: Layout,
@@ -50,14 +51,17 @@ const routes = [
                component: Modify
            }
         ]
-    }, {
+    },
+    {
         path: '/login',
         component: Login
-    }, {
+    },
+    {
        name: '$404',
        path: '/404',
        component: $404
-   }, {
+   },
+   {
        path: '*',
        redirect: '404'
    }
@@ -72,6 +76,24 @@ let Admin = new Vue({
     el: '#app',
     render: h => h(App)
 });
+
+
+// router.beforeEach(async (to, from, next) => {
+//     const isLogin = await Admin.$http.get('/blog/public/admin/index/isLogin')
+//     // console.log(Admin)
+//     if (sessionStorage.getItem('username') && isLogin.body.code) {
+//         console.log(isLogin);
+//         // Admin.$r
+//         next('/');
+//         // Admin.$router.push('#/')
+//         // location.href = '/blog/public/admin/#/'
+//     } else {
+//         console.log(isLogin.body);
+//         next('/login');
+//         // Admin.$router.push('#/login')
+//         // location.href = '/blog/public/admin/#/login';
+//     }
+// })
 
 // online editor. see: http://lanfly.github.io/laneditor/doc/
 import '../css/index.css';

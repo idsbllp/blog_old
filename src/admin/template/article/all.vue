@@ -20,7 +20,8 @@
         },
         mounted () {
             this.$http.get('/blog/public/admin/index/getAllArticle').then(res => {
-                this.articles = res.body;
+                res = JSON.parse(res.body);
+                this.articles = res;
             });
         },
     }

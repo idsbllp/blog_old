@@ -22,14 +22,10 @@
             navigator,
             myHeader,
         },
-        beforeCreate () {
-            const llp = sessionStorage.getItem('llp');
-            if (!llp) {
-                location.href = '/blog/public/admin/#/login';
-            }
+        beforeCreate() {
             this.$http.get('/blog/public/admin/index/getuser').then(res => {
-                console.log(res.body[0]);
-                this.userInfo = res.body[0];
+                res = JSON.parse(res.body);
+                this.userInfo = res[0];
             });
         },
         data () {

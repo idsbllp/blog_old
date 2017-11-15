@@ -22,13 +22,6 @@
                 password: ''
             }
         },
-        beforeCreate () {
-            const llp = sessionStorage.getItem('llp');
-            if (llp) {
-                location.href = '/blog/public/admin/#/';
-            }
-            
-        },
         mounted () {
             bg();
         },
@@ -44,9 +37,9 @@
                     username,
                     password
                 }).then(res => {
-                    res = res.body;
+                    res = JSON.parse(res.body);
                     if (res.code) {
-                        sessionStorage.setItem('llp', 'llp');
+                        sessionStorage.setItem('username', username);
                         location.href = '/blog/public/admin/#/';
                     } else {
                         sweetAlert('账号或密码错误', '向管理员要吧', 'error');

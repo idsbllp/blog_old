@@ -37,8 +37,9 @@
                         }, 1);
                     } else {
                         this.$http.get(`/blog/public/admin/index/getArtileByTag/tag/${tag}`).then(res => {
+                            res = JSON.parse(res.body);
                             this.articlesOfTag = [];
-                            return res.body;
+                            return res;
                         }).then(articles => {
                             this.articlesOfTag = articles;
                             sessionStorage.setItem(tag, JSON.stringify(articles));

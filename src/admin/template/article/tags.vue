@@ -27,11 +27,12 @@
         },
         mounted () {
             this.$http.get('/blog/public/admin/index/getAllTags').then(res => {
-                this.tags = res.body;
+                res = JSON.parse(res.body);
+                this.tags = res;
             });
         },
         methods: {
-            
+
         },
         directives: {
             focus: {

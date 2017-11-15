@@ -1,6 +1,6 @@
 <template>
     <section class="user-infor-con">
-        <a href="#/about-article" class="user-logo_anchor">
+        <a href="#/index/all-article" class="user-logo_anchor">
             <img class="user-logo_img" src="../../../img/head.jpg" alt="header img">
         </a>
         <ul class="user-infor">

@@ -86,7 +86,7 @@
                 this.$http.post('/blog/public/admin/index/addArticle', {
                     article: JSON.stringify(article)
                 }).then(res => {
-                    res = res.body;
+                    res = JSON.parse(res.body);
                     if (res.code) {
                         swal({
                             title: res.status,

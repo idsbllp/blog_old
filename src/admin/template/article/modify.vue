@@ -39,7 +39,8 @@
                 const url = `/blog/public/admin/index/getArticleByName/name/${articleName}`;
                 this.$http.get(url).then(res => {
                     if (res.body.length > 0) {
-                        let article = res.body[0];
+                        res = JSON.parse(res.body);
+                        let article = res[0];
 
                         const {name, brief, content, tag_name, id} = article;
                         this.articleId = id;
@@ -134,7 +135,7 @@
                 this.$http.post('/blog/public/admin/index/modifyArticle', {
                     article: JSON.stringify(article)
                 }).then(res => {
-                    res = res.body;
+                    res = JSON.parse(res.body);
                     if (res.code) {
                         swal({
                             title: res.status,
