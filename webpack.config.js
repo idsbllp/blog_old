@@ -90,7 +90,12 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery',
             marked: 'marked',
-            hljs: 'highlight.js',
+            hljs: 'highlight.js'
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
