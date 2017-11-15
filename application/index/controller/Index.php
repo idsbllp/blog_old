@@ -8,7 +8,6 @@ use app\index\model\Article;
 class Index extends Controller
 {
     public function index() {
-
         $title = 'idsbllp';
         $this->assign('title', $title);
         return $this->fetch();
@@ -33,7 +32,6 @@ class Index extends Controller
         imageinterlace($img, 1);
         imagejpeg($img);
         imagedestroy($img);
-        exit();
     }
     public function getAllArticle() {
         return Article::getAllArticle();
