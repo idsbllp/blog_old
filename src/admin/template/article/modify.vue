@@ -41,13 +41,15 @@
                         res = JSON.parse(res.body);
                         let article = res[0];
 
-                        const {name, brief, content, tag_name, id} = article;
+                        console.log(article);
+
+                        const {name, brief, content, tag, id} = article;
                         this.articleId = id;
                         this.name = name;
                         this.brief = brief;
                         this.content = content;
                         this.contentCopy = content;
-                        this.tag = tag_name;
+                        this.tag = tag;
                         var e = new KeyboardEvent("keyup", {bubbles : true, cancelable : true, key : "Q", char : "Q", shiftKey : true});
                         $('#editor')[0].dispatchEvent(e);
                     } else {
