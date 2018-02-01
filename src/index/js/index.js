@@ -23,7 +23,7 @@ const routes = [
             {
                 path: '/',
                 alias: '/index',
-                component: MyInfor
+                component: ArticleList
             },
             // 专题
             {

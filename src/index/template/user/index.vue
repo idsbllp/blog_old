@@ -6,9 +6,9 @@
                 <router-link :to="{path: '/index'}" hover class="nav-list">
                     首页
                 </router-link>
-                <router-link :to="{path: '/article'}" hover class="nav-list">
+               <!--  <router-link :to="{path: '/article'}" hover class="nav-list">
                     专题
-                </router-link>
+                </router-link> -->
                 <router-link :to="{path: '/about'}" hover class="nav-list">
                     关于
                 </router-link>
