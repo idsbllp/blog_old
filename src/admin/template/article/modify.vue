@@ -3,7 +3,7 @@
         <h3>添加文章</h3>
         <div class="add-content">
             <input v-model="name" type="text" class="article_name" placeholder="请输入文章标题">
-            <div class="article_tags" v-on:click="deleteTag">
+            <div class="article_tags">
                 标签: <input v-model="tag">
             </div>
             <textarea v-model="brief" type="text" class="article_brief" placeholder="请输入文章简介"></textarea>
@@ -29,8 +29,7 @@
                 tag: '',
                 name: '',
                 brief: '',
-                content: '',
-                tags: [],
+                content: ''
             }
         },
         mounted () {
@@ -60,54 +59,12 @@
             }
         },
         methods: {
-            deleteTag (e) {
-                let target = e.target;
-                if (target.nodeName.toLowerCase() === 'span') {
-                    let tag = target.innerText;
-                    let index =  this.tags.indexOf(tag);
-
-                    swal({
-                        title: `你确定要删除 ${tag} 吗?`,
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "确认删除",
-                        closeOnConfirm: false
-                    }, () => {
-                        this.tags.splice(index, 1);
-                        swal("删除成功!", '', "success");
-                    });
-                }
-            },
-            addTag () {
-                this.inputtingTag = true;
-            },
-            submitAddTag (e) {
-                let tag = $('.add-tag_input').val().trim();
-                if (tag.length > 6) {
-                    swal('标签名太长');
-                    return;
-                }
-                if (tag.length === 0) {
-                    swal('请输入标签名')
-                    return;
-                }
-                if (~this.tags.indexOf(tag)) {
-                    swal('标签已存在，请重新输入');
-                } else {
-                    this.tags.push(tag);
-                    this.inputtingTag = false;
-                }
-            },
-            cancleAddTag () {
-                this.inputtingTag = false;
-            },
             submitModifyArticle () {
                 let article = {
                     id: this.articleId,
                     name: this.name,
-                    tags: this.tags,
-                    brief: this.brief,
+                    tag: this.tag || '暂无标签',
+                    brief: this.brief || '',
                     content: this.contentCopy,
                     date: Date.now()
                 };

@@ -61,7 +61,6 @@ class Article extends Model
     }
     public static function modifyArticle($article) {
         $article = json_decode($article['article']);
-
         $id = $article->id;
         $originalArticle = Db::name('category')->where('id', $id)->select()[0];
 
@@ -79,6 +78,7 @@ class Article extends Model
             'content' => $article->content
         ];
         // 更新目录(blog_category)的标题，标签，简介，时间，内容
-        return Db::query('UPDATE blog_category SET name = :name, tag = :tag, brief = :brief, date = :date, content = :content WHERE id = :id', $articleInfor);
+        Db::query('UPDATE blog_category SET name = :name, tag = :tag, brief = :brief, date = :date, content = :content WHERE id = :id', $articleInfor);
+        return true;
     }
 }

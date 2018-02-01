@@ -3,7 +3,7 @@
         <h3>添加文章</h3>
         <div class="add-content">
             <input v-model="name" type="text" class="article_name" placeholder="请输入文章标题">
-            <div class="article_tags" v-on:click="deleteTag">
+            <div class="article_tags">
                 标签: <input v-model="tag">
             </div>
             <textarea v-model="brief" class="article_brief" placeholder="请输入文章简介"></textarea>
@@ -36,24 +36,6 @@
 
         },
         methods: {
-            deleteTag (e) {
-                let target = e.target;
-                if (target.nodeName.toLowerCase() === 'span') {
-                    let tag = this.tag;
-
-                    swal({
-                        title: `你确定要删除 ${tag} 吗?`,
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "确认删除",
-                        closeOnConfirm: false
-                    }, () => {
-                        this.tag = '';
-                        swal("删除成功!", '', "success");
-                    });
-                }
-            },
             submitAddArticle () {
                 let article = {
                     id: null,
@@ -63,7 +45,7 @@
                     content: this.contentCopy,
                     date: Date.now()
                 };
-                // 判断输入
+                // 判断输入 
                 if (!article.name) {
                     swal('请输入文章标题！');
                     return;
