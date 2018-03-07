@@ -2,6 +2,7 @@
     <article>
         <div v-title v-if="article">{{article.name}}</div>
         <h1 class="title">{{article.name}}</h1>
+        <p class="article-brief"> {{article.brief}} </p>
         <div class="article-content" v-if="article" v-compiledMarkdown>{{article.content}}</div>
     </article>
 </template>
@@ -68,5 +69,8 @@
             margin: 0 auto;
             max-width: 80%;
         }
+    }
+    .article-brief {
+        padding-left: 10px;
     }
 </style>
