@@ -108,6 +108,9 @@
         padding-left: 22px;
         font-size: 20px;
         color: #000;
+        max-height: 300px;
+        margin-bottom: 20px;
+        overflow: hidden;
         pre, img, blockquote {
             display: none;
         }
