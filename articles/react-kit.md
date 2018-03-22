@@ -6,7 +6,6 @@
 
 ***
 
-
 [react-kit](https://github.com/idsbllp/react-kit) 是借鉴 `vue-cli` 的代码改编而来的, 再进行自己的改而成。
 
 之后自行整合了 `React-Router`, `Less` 。 并支持热加载

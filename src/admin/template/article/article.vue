@@ -45,6 +45,9 @@
 
 <style lang="less">
     .article-content {
+        max-height: 300px;
+        overflow: hidden;
+        margin-bottom: 20px;
         pre, img, blockquote {
             display: none;
         }

@@ -15,7 +15,7 @@ class Article extends Model
         $allTags = [];
         foreach ($allTagsObj as $key => $value) {
             foreach ($value as $name => $tag) {
-                if ($tag === '暂无标签') {
+                if ($tag === '其他') {
                     array_unshift($allTags, $tag);
                 } else {
                     array_push($allTags, $tag);
@@ -44,7 +44,7 @@ class Article extends Model
         if ($hasBlog) {
             return 0;
         }
-        $tag = $article->tag ? $article->tag : '暂无标签';
+        $tag = $article->tag ? $article->tag : '其他';
 
         $articleInfor = [
             'id' => $article->id,
@@ -67,7 +67,7 @@ class Article extends Model
         if (!$originalArticle) {
             return false;
         }
-        $tag = $article->tag ? $article->tag : '暂无标签';
+        $tag = $article->tag ? $article->tag : '其他';
 
         $articleInfor = [
             'id' => $id,
