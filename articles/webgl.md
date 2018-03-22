@@ -27,7 +27,7 @@
 
 > 采用了下面两种着色器小程序 的 数据传输处理计算的渲染过程，称之为 **可编程管线**。
 
-![WebGL](https://idsbllp.com/blog/artiles/img/webgl.png)
+![WebGL](https://idsbllp.com/blog/artiles/img/webgl.jpg)
 
 1. 顶点着色器（vertex shader）这个是告诉电脑如何打线稿的——如何处理顶点、法线等的数据。
 2. 片面着色器（fragment shader）这个是告诉电脑如何上色的——如何处理光、阴影、遮挡、环境等等对物体表面的影响，最终生成一副图像。
